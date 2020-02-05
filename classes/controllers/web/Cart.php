@@ -85,7 +85,7 @@ Class Cart{
                 
                  $this->di->get("Database")->query($query);
                 }
-                
+
                 $query = "SELECT * FROM user_category WHERE user_id={$user_id} and category_name like '%$category_name%'";
                 
                 $res = $this->di->get("Database")->rawQuery($query);
@@ -128,10 +128,18 @@ Class Cart{
     }
 
     public function deleteProductFromCart($data){
-        var_dump($data);
+        //var_dump($data);
         $query = "DELETE FROM {$this->table} WHERE product_id = {$data['product_id']}";
         //echo $query;
         $this->di->get("Database")->query($query);
+    }
+    public function deleteCartProductsByUser($id){
+        $query = "DELETE from cart WHERE user_id={$id}";
+        if($res = $this->di->get("Database")->query($query)){
+            Session::setSession("order","Order Placed success");
+            Util::redirect("shop");
+        }
+
     }
     
 }
