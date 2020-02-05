@@ -8,7 +8,26 @@ Class Cart{
     }
 
     public function addToCart($data){
-        
+        try {
+            //echo "hii";
+            // Begin Transaction
+            $this->di->get("Database")->beginTransaction();
+            $assoc_array["product_id"] = $data["product_id"];
+            $assoc_array["quantity"] = $data["quantity"];
+            $assoc_array["user_id"] = Session::getSession("user_id");
+        $query="SELECT category_name as cn from product WHERE id={$data["product_id"]}";
+            $category_name = $this->di->get("Database")->rawQuery($query)[0];
+            $category_name = $category_name["cn"];
+            $assoc_array["category"] = $category_name;
+            $cart_id = $this->di->get("Database")->insert($this->table, $assoc_array);
+            $this->di->get("Database")->commit();
+            // end transaction
+            Session::setSession("add", "Add to cart successfully");
+        } catch (Exception $e) {
+            echo $e;
+            $this->di->get("Database")->rollback();
+            Session::setSession("add", "Add to cart failed");
+        }
     }
 
 
@@ -43,5 +62,65 @@ Class Cart{
         
 
     }
+    
+    public function addCategoryUser($data){
+        try {
+            // Begin Transaction
+            $this->di->get("Database")->beginTransaction();
+            $product_id = $data["product_id"];
+            $query="SELECT category_name as cn from product WHERE id={$product_id}";
+            $category_name = $this->di->get("Database")->rawQuery($query)[0];
+            $category_name = $category_name["cn"];
+            $query = "SELECT user_ids from category_user WHERE category_name like'%{$category_name}%'";
+            $res = $this->di->get("Database")->rawQuery($query);
+            
+            $user_id = Session::getSession("user_id");
+            if(count($res) > 0 ){
+                $user_ids = $res[0]["user_ids"];
+               
+                $arr_user_ids = explode(",",$user_ids);
+                if(!in_array($user_id,$arr_user_ids)){
+                    
+                    $user_ids.=",{$user_id}";
+                    
+                $query  = "UPDATE category_user set user_ids='$user_ids' WHERE category_name like '%$category_name%'";
+                
+                 $this->di->get("Database")->query($query);
+                }else{
+                $query = "SELECT * FROM user_category WHERE user_id={$user_id} and category_name like '%$category_name%'";
+                
+                $res = $this->di->get("Database")->rawQuery($query);
+                    if(!(count($res) > 0)){
+                        $assoc_array["user_id"] = $user_id;
+                    $assoc_array["category_name"] = $category_name;
+                    //var_dump($assoc_array);
+                    $category_user_id = $this->di->get("Database")->insert("user_category", $assoc_array);
+                    }else{
+                        echo "hii";
+                    }
+                }
+                
+            }else{
+                $user_ids =  $user_id;
+                $assoc_array = [];
+                $assoc_array["category_name"] = $category_name;
+                $assoc_array["user_ids"] = $user_ids;
+                $category_user_id = $this->di->get("Database")->insert("category_user", $assoc_array);
+                $assoc_array = [];
+                $assoc_array["user_id"] = $user_id;
+                $assoc_array["category_name"] = $category_name;
+                $category_user_id = $this->di->get("Database")->insert("user_category", $assoc_array);
+            }
+            
+            $this->di->get("Database")->commit();
+            // end transaction
+            
+        } catch (Exception $e) {
+            echo $e;
+            $this->di->get("Database")->rollback();
+            
+        }
+    }
+    
 }
 ?>
