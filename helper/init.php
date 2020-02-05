@@ -13,9 +13,7 @@ $di->set("UserHelper", new UserHelper($di));
 $di->set("Mail", MailConfigHelper::getMailer());
 $di->set("Validator", new Validator($di));
 
-$di->set("Doctor",new Doctor($di));
-$di->set("Patient",new Patient($di));
-$di->set("Appointment",new Appointment($di));
-$di->set("Specialization",new Specialization($di));
+
+$di->set("Cart",new Cart($di));
 
 // $tokenHandler->build();
