@@ -1,7 +1,7 @@
 
 <?php
-require_once(__DIR__.'/../includes/header-bp.php')
-
+require_once(__DIR__.'/../includes/header-bp.php');
+// var_dump($_SESSION);
 ?>
 <!-- ##### Welcome Area Start ##### -->
 <section class="welcome_area bg-img background-overlay" style="background-image: url(<?php echo BASEASSETS;?>img/bg-img/bg-1.jpg);">

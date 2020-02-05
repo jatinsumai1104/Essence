@@ -21,5 +21,6 @@ require_once(__DIR__.'/../../helper/init.php');
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="<?php echo BASEASSETS;?>css/core-style.css">
     <link rel="stylesheet" href="<?php echo BASEASSETS;?>css/style.css">
+    <link href="<?php echo BASEASSETS;?>vendors/bootstrap-toastr/toastr.min.css" rel="stylesheet">
 
 </head>
