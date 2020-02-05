@@ -25,11 +25,8 @@
                                     <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
                                     <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
-<<<<<<< HEAD
                                     <li><a href="<?php echo BASEURL;?>bestSeller">BestSeller</a></li>
-=======
                                     <li><a href="<?php echo BASEURL;?>events">Events</a></li>
->>>>>>> 373be24f2a513f217166b98c43527bd1de31f7bf
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>

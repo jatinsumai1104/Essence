@@ -10,7 +10,7 @@ RewriteRule ^single-product-details/([a-zA-Z0-9]+)$ views/sections/single-produc
 RewriteRule ^checkout$ views/sections/checkout.php
 RewriteRule ^contact$ views/sections/contact.php
 RewriteRule ^recommend$ views/sections/recommend.php
-RewriteRule ^recommend$ views/sections/bestSeller.php
+RewriteRule ^bestSeller$ views/sections/bestSeller.php
 RewriteRule ^cart$ views/sections/cart.php
 RewriteRule ^index$ views/sections/index.php
 RewriteRule ^events$ views/sections/events.php
