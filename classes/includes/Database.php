@@ -31,6 +31,10 @@ class Database {
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function query($sql){
+        return $this->pdo->query($sql);
+    }
+
 
 
     public function insert($table, $data){
@@ -40,6 +44,7 @@ class Database {
         $placeholders = ":" . implode(", :", $keys);
 
         $sql = "INSERT INTO {$table} ({$fields}) VALUES({$placeholders})";
+        // echo $sql;
         $this->stmt = $this->pdo->prepare($sql);
 
         $this->stmt->execute($data);

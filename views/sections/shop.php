@@ -34,113 +34,55 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                     <li data-toggle="collapse" data-target="#clothing">
                                         <a href="#">clothing</a>
                                         <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans">Jeans</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans_men">Jeans Men</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans_women">Jeans Women</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/shirt">Shirts</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/shirt_men">Shirts Men</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/shirt_women">Shirts Women</a></li>
                                             <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/shirt">Shirts &amp; Blouses</a></li>
                                         </ul>
                                     </li>
                                     <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#shoes" class="collapsed">
-                                        <a href="#">shoes</a>
-                                        <ul class="sub-menu collapse" id="shoes">
+                                    <li data-toggle="collapse" data-target="#electronics" class="collapsed">
+                                        <a href="#">Electronics</a>
+                                        <ul class="sub-menu collapse" id="electronics">
                                             <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/laptop">Laptop</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/mobile">Mobiles</a></li>
+                                            <li><a href="#">Other Accessories</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-toggle="collapse" data-target="#make-up" class="collapsed">
+                                        <a href="#">Make - Up</a>
+                                        <ul class="sub-menu collapse" id="make-up">
+                                            <li><a href="<?php echo BASEURL;?>shop/make_up">All</a></li>
                                         </ul>
                                     </li>
                                     <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#accessories" class="collapsed">
-                                        <a href="#">accessories</a>
-                                        <ul class="sub-menu collapse" id="accessories">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                    <li data-toggle="collapse" data-target="#books" class="collapsed">
+                                        <a href="#">Books</a>
+                                        <ul class="sub-menu collapse" id="books">
+                                            <li><a href="<?php echo BASEURL;?>shop/books">All</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/fict_name">Fiction Books</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/nonfict_name">Non Fiction Books</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget price mb-50">
-                            <!-- Widget Title -->
-                            <h6 class="widget-title mb-30">Filter by</h6>
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Price</p>
-
-                            <div class="widget-desc">
-                                <div class="slider-range">
-                                    <div data-min="49" data-max="360" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="49" data-value-max="360" data-label-result="Range:">
-                                        <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                    </div>
-                                    <div class="range-price">Range: $49.00 - $360.00</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget color mb-50">
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Color</p>
-                            <div class="widget-desc">
-                                <ul class="d-flex">
-                                    <li><a href="#" class="color1"></a></li>
-                                    <li><a href="#" class="color2"></a></li>
-                                    <li><a href="#" class="color3"></a></li>
-                                    <li><a href="#" class="color4"></a></li>
-                                    <li><a href="#" class="color5"></a></li>
-                                    <li><a href="#" class="color6"></a></li>
-                                    <li><a href="#" class="color7"></a></li>
-                                    <li><a href="#" class="color8"></a></li>
-                                    <li><a href="#" class="color9"></a></li>
-                                    <li><a href="#" class="color10"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget brands mb-50">
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Brands</p>
-                            <div class="widget-desc">
-                                <ul>
-                                    <li><a href="#">Asos</a></li>
-                                    <li><a href="#">Mango</a></li>
-                                    <li><a href="#">River Island</a></li>
-                                    <li><a href="#">Topshop</a></li>
-                                    <li><a href="#">Zara</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
+                <?php 
+                    $products = [];
+                    if(isset($_GET["category_name"])){
+                        $products = $di->get("Product")->getProductByCategory($_GET["category_name"]);
+                    }else{
+                        $products = $di->get("Product")->readAllProducts();
+                    }
+                ?>
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
                         <div class="row">
@@ -148,20 +90,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>186</span> products found</p>
-                                    </div>
-                                    <!-- Sorting -->
-                                    <div class="product-sorting d-flex">
-                                        <p>Sort by:</p>
-                                        <form action="#" method="get">
-                                            <select name="select" id="sortByselect">
-                                                <option value="value">Highest Rated</option>
-                                                <option value="value">Newest</option>
-                                                <option value="value">Price: $$ - $</option>
-                                                <option value="value">Price: $ - $$</option>
-                                            </select>
-                                            <input type="submit" class="d-none" value="">
-                                        </form>
+                                        <p><span><?php echo count($products);?></span> products found</p>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +98,6 @@ require_once(__DIR__.'/../includes/header-bp.php');
                         
                         <div class="row">
                             <?php 
-                                $products = $di->get("Product")->readAllProducts();
                                 foreach($products as $product){
                             ?>
                                 <!-- Single Product -->
@@ -183,7 +111,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                         <!-- Product Description -->
                                         <div class="product-description">
                                             <span><?php echo $product['seller_name'];?></span>
-                                            <a href="single-product-details/<?php echo $product['id'];?>">
+                                            <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
                                             <p class="product-price"> $<?php echo $product['price'];?></p>
@@ -201,6 +129,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                             <?php } ?>
                         </div>
                     </div>
+                    <?php if(count($products) > 20){?>
                     <!-- Pagination -->
                     <nav aria-label="navigation">
                         <ul class="pagination mt-50 mb-70">
@@ -213,6 +142,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
                         </ul>
                     </nav>
+                    <?php } ?>
                 </div>
             </div>
         </div>

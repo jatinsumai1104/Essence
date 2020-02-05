@@ -20,6 +20,8 @@ require_once "{$app}/../classes/includes/Session.php";
 
 
 // Project Related Classes
+require_once "{$app}/../classes/controllers/web/Event.php";
+require_once "{$app}/../classes/controllers/web/UserSpecific.php";
 
 require_once "{$app}/../classes/controllers/web/Cart.php";
 require_once "{$app}/../classes/controllers/web/Product.php";
