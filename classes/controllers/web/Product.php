@@ -58,17 +58,19 @@ Class Product{
   }
 
   public function getTotalBill($user_id){
-    $query= "SELECT p.id,p.price FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $user_id";
+    $query= "SELECT p.id,p.price,c.quantity FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $user_id";
     $res = $this->di->get("Database")->rawQuery($query);
     $total_price = 0;
     $product_ids = $this->getAllProductsOnSale();
     foreach($res as $key => $value){
       if(in_array($value["id"],$product_ids)){
-        $total_price += $this->getTotal($value["id"]);
+        $total_price += ($this->getTotal($value["id"])*$value["quantity"]);
       }else{
-        $total_price+=$value["price"];
+        $total_price+=($value["price"]*$value["quantity"]);
       }
     }
+    //var_dump($value["quantity"]);
+    var_dump($res);
 
     return $total_price;
   }
