@@ -34,10 +34,10 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span><?php echo $category['category_name']?></span> recommended for you are</p>
+                                        <p>People also viewed these <span><?php echo $category['category_name']?></span></p>
                                     </div>
                                     <div class="float-right">
-                                      <a href="#" class="btn essence-btn btn-sm">Show More ..</a>
+                                      <a href="<?php echo BASEURL;?>shop/<?php echo $category['category_name'];?>" class="btn essence-btn btn-sm">Show More ..</a>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,12 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
 
                             <?php
                             $product_ids = $di->get("Category")->getCategoryUsers($category['category_name']);
+                            $i=0;
                             foreach($product_ids as $prod){
+                                $i++;
+                                if($i==4){
+                                break;
+                                }
                                 $product = $di->get("Product")->getProductById($prod);
                             ?>
 
@@ -63,7 +68,7 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                             <a href="single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?></p>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">

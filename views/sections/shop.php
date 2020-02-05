@@ -31,6 +31,9 @@ require_once(__DIR__.'/../includes/header-bp.php');
                             <div class="catagories-menu">
                                 <ul id="menu-content2" class="menu-content collapse show">
                                     <!-- Single Item -->
+                                    <li>
+                                        <a href="<?php echo BASEURL;?>shop">All</a>
+                                    </li>
                                     <li data-toggle="collapse" data-target="#clothing">
                                         <a href="#">clothing</a>
                                         <ul class="sub-menu collapse show" id="clothing">
@@ -114,7 +117,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?></p>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">

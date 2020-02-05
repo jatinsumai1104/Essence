@@ -8,8 +8,8 @@ $product = $di->get("Product")->getProductById($_GET["product_id"]);
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides owl-carousel">
-                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 30%">
-                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 30%">
+                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 60%">
+                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 60%">
             </div>
         </div>
 
