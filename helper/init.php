@@ -18,4 +18,7 @@ $di->set("Validator", new Validator($di));
 $di->set("Cart",new Cart($di));
 $di->set("Product",new Product($di));
 
+
+$di->set("Event",new Event($di));
+$di->set("UserSpecific",new UserSpecific($di));
 // $tokenHandler->build();
