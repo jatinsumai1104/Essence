@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
 $product = $di->get("Product")->getProductById($_GET["product_id"]);
+$review = $di->get("Product")->getReviewByProductId($_GET["product_id"]);
 ?>
     <!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">
@@ -27,7 +28,20 @@ $product = $di->get("Product")->getProductById($_GET["product_id"]);
                 <!-- Cart -->
                 <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
             </div>
+
+            Product Reviews:
+            <br>
+
+            <?php
+                foreach($review as $res){
+                    echo $res['name'].":  ". $res['description']. "  ". $res['rating'];
+                    echo "<br>";
+                }
+            ?>
+
         </div>
+
+        
     </section>
     <!-- ##### Single Product Details Area End ##### -->
     <?php

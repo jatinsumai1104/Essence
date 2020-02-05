@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
+// echo $_SESSION['user_id'];
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(<?php echo BASEASSETS;?>img/bg-img/breadcumb.jpg);">
@@ -80,10 +81,15 @@ require_once(__DIR__.'/../includes/header-bp.php');
                 </div>
                 <?php 
                     $products = [];
-                    if(isset($_GET["category_name"])){
-                        $products = $di->get("Product")->getProductByCategory($_GET["category_name"]);
+                    if(isset($_SESSION["search_query"])){
+                        $products = $di->get("Database")->rawQuery("SELECT * from product where category_name like '%{$_SESSION['search_query']}%'");
+                        unset($_SESSION['search_query']);
                     }else{
-                        $products = $di->get("Product")->readAllProducts();
+                        if(isset($_GET["category_name"])){
+                            $products = $di->get("Product")->getProductByCategory($_GET["category_name"]);
+                        }else{
+                            $products = $di->get("Product")->readAllProducts();
+                        }
                     }
                 ?>
                 <div class="col-12 col-md-8 col-lg-9">
