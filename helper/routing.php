@@ -50,3 +50,7 @@ if(isset($_POST["add-to-cart"])){
     //echo "hii";
     $di->get('Cart')->addToCart($_POST);
 }
+if(isset($_POST["get"])){
+    //echo "hii";
+    $di->get('Product')->getAllProductsOnSale();
+}

@@ -22,5 +22,28 @@ Class Product{
     public function getAllSellers(){
       return $this->di->get("Database")->readData($this->table, ["seller_name"]);
     }
+
+    public function getAllProductsOnSale(){
+      $query = "SELECT category from events WHERE name = 'BBD'";
+      $res = $this->di->get("Database")->rawQuery($query);
+      $res = $res[0];
+      
+      $category_names = explode(",",$res["category"]);
+      
+      $product_ids = [];
+      foreach($category_names as $category_name){
+      $query = "SELECT product.id from product WHERE product.category_name like '%$category_name%'";
+      
+      $res = $this->di->get("Database")->rawQuery($query);
+      
+          foreach($res as $key=>$value){
+             
+              array_push($product_ids,$value["id"]);
+              
+          }
+      }
+
+     //var_dump($product_ids);
+  }
 }
 ?>
