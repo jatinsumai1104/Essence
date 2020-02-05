@@ -23,8 +23,6 @@
                                     <li><a href="<?php echo BASEURL;?>shop">Shop</a></li>
                                     <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
                                     <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
-                                    <li><a href="<?php echo BASEURL;?>login">Login</a></li>
-                                    <li><a href="<?php echo BASEURL;?>register">Register</a></li>
                                     <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
                                     <li><a href="<?php echo BASEURL;?>events">Events</a></li>

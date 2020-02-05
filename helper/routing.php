@@ -54,5 +54,5 @@ if(isset($_POST["get"])){
     //echo "hii";
     $di->get('Product')->getAllProductsOnSale();
     $di->get('Product')->getTotalBill(1);
-    //Util::redirect("shop");
+    Util::redirect("shop");
 }

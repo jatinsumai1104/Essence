@@ -76,11 +76,11 @@ require_once(__DIR__.'/../includes/header-bp.php')
                         <?php 
                             foreach($products as $product){
                         ?>
-                        <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>$<?php echo $product['quantity']*$product["price"];?></span></li>
+                        <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>Rs. <?php echo $product['quantity']*$product["price"];?></span></li>
                         <?php } ?>
-                        <li><span>Subtotal</span> <span>$<?php echo $total_price;?></span></li>
+                        <li><span>Subtotal</span> <span>Rs. <?php echo $total_price;?></span></li>
                         <li><span>Shipping</span> <span>Free</span></li>
-                        <li><span>Total</span> <span>$<?php echo $total_price;?></span></li>
+                        <li><span>Total</span> <span>Rs. <?php echo $total_price;?></span></li>
                     </ul>
 
                     <a href="#" class="btn essence-btn">Check Out</a>
