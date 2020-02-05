@@ -47,13 +47,23 @@ class Event{
         $result = [];
         for($i=0;$i<count($category);$i++){
             $cat = $category[$i];
-            $sql = "SELECT * FROM product WHERE category_name LIKE '%$cat%'";
+            $sql = "SELECT * FROM product WHERE category_name LIKE '%$cat%' LIMIT 5";
             $res = $this->di->get("Database")->rawQuery($sql);
             $result = array_merge($result,$res);    
         }
-        
         return $result;
+    }
 
+    public function getProductsForBday(){
+        $category = $this->getEventCategory("birthday");
+        $result = [];
+        for($i=0;$i<count($category);$i++){
+            $cat = $category[$i];
+            $sql = "SELECT * FROM product WHERE category_name LIKE '%$cat%' LIMIT 5";
+            $res = $this->di->get("Database")->rawQuery($sql);
+            $result = array_merge($result,$res);    
+        }
+        return $result;
     }
 }
 

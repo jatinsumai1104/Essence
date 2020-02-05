@@ -20,4 +20,5 @@ $di->set("Specialization",new Specialization($di));
 
 
 $di->set("Event",new Event($di));
+$di->set("UserSpecific",new UserSpecific($di));
 // $tokenHandler->build();

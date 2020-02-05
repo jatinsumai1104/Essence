@@ -23,3 +23,4 @@ require_once "{$app}/../classes/controllers/web/Patient.php";
 require_once "{$app}/../classes/controllers/web/Appointment.php";
 require_once "{$app}/../classes/controllers/web/Specialization.php";
 require_once "{$app}/../classes/controllers/web/Event.php";
+require_once "{$app}/../classes/controllers/web/UserSpecific.php";
