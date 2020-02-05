@@ -148,6 +148,8 @@ require_once(__DIR__.'/../includes/header-bp.php');
         </div>
     </section>
     <!-- ##### Shop Grid Area End ##### -->
+
+
     <?php
 require_once(__DIR__.'/../includes/footer-bp.php')
 
