@@ -7,7 +7,7 @@ Class Cart{
         $this->di = $di;
     }
 
-    public function addCart($data){
+    public function addToCart($data){
         
     }
 }
