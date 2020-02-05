@@ -82,12 +82,13 @@ require_once(__DIR__.'/../includes/header-bp.php');
 
                             <div class="widget-desc">
                                 <div class="slider-range">
-                                    <div data-min="49" data-max="360" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="49" data-value-max="360" data-label-result="Range:">
+                                    <div data-min="500" data-max="5000" data-unit="Rs" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="500" data-value-max="5000" data-label-result="Range:">
                                         <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                                         <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                         <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                     </div>
-                                    <div class="range-price">Range: $49.00 - $360.00</div>
+                                    <div class="range-price" id="nik">Range: Rs 500 - Rs 5000</div>
+                                    <form action=""></form>
                                 </div>
                             </div>
                         </div>
@@ -178,6 +179,8 @@ require_once(__DIR__.'/../includes/header-bp.php');
         </div>
     </section>
     <!-- ##### Shop Grid Area End ##### -->
+
+
     <?php
 require_once(__DIR__.'/../includes/footer-bp.php')
 
