@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteRule ^$ views/sections/index.php
+RewriteRule ^login$ views/sections/login.php
+RewriteRule ^register$ views/sections/register.php
+RewriteRule ^register_patient$ views/sections/register_patient.php
+RewriteRule ^about_us$ views/sections/about_us.php
+RewriteRule ^contact_us$ views/sections/contact_us.php
+RewriteRule ^image_through_camera$ views/sections/disease_identify_camera.php
+RewriteRule ^image_through_local$ views/sections/disease_identify_local.php
+RewriteRule ^list_patients$ views/sections/list_patients.php
+RewriteRule ^prescription$ views/sections/prescription.php
+RewriteRule ^prescription_history/([0-9]+)$ views/sections/prescription_history.php?patient_id=$1
+RewriteRule ^handle_patient$ views/sections/handle_patient.php
+RewriteRule ^result_graph$ views/sections/result_graphs.php
+RewriteRule ^doctors$ views/sections/doctors.php
+RewriteRule ^questionnaire$ views/sections/questionnaire.php
