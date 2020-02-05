@@ -24,7 +24,7 @@ class UserSpecific{
         $date_today = date_create($date_today);
         $dob_date = date_create($dob);
         $res = date_diff($date_today,$dob_date);
-        $res = $res->days%365;
+        $res = $res->days%365;        
         if($res >= 355){
             return true;
         }

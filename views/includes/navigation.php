@@ -29,6 +29,7 @@
                                     <li><a href="<?php echo BASEURL;?>register">Register</a></li>
                                     <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
+                                    <li><a href="<?php echo BASEURL;?>events">Events</a></li>
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
@@ -46,10 +47,6 @@
                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
-                </div>
-                <!-- Favourite Area -->
-                <div class="favourite-area">
-                    <a href="#"><img src="<?php echo BASEASSETS;?>img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
