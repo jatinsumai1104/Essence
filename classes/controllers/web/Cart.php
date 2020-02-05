@@ -84,7 +84,8 @@ Class Cart{
                 $query  = "UPDATE category_user set user_ids='$user_ids' WHERE category_name like '%$category_name%'";
                 
                  $this->di->get("Database")->query($query);
-                }else{
+                }
+
                 $query = "SELECT * FROM user_category WHERE user_id={$user_id} and category_name like '%$category_name%'";
                 
                 $res = $this->di->get("Database")->rawQuery($query);
@@ -93,10 +94,8 @@ Class Cart{
                     $assoc_array["category_name"] = $category_name;
                     //var_dump($assoc_array);
                     $category_user_id = $this->di->get("Database")->insert("user_category", $assoc_array);
-                    }else{
-                        echo "hii";
                     }
-                }
+                
                 
             }else{
                 $user_ids =  $user_id;
@@ -128,6 +127,12 @@ Class Cart{
         return $res;
     }
 
+    public function deleteProductFromCart($data){
+        //var_dump($data);
+        $query = "DELETE FROM {$this->table} WHERE product_id = {$data['product_id']}";
+        //echo $query;
+        $this->di->get("Database")->query($query);
+    }
     public function deleteCartProductsByUser($id){
         $query = "DELETE from cart WHERE user_id={$id}";
         if($res = $this->di->get("Database")->query($query)){

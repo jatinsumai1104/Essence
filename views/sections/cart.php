@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__.'/../includes/header-bp.php')
+require_once(__DIR__.'/../includes/header-bp.php');
+//echo $_SESSION["user_id"];
 
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
