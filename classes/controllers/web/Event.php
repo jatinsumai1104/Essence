@@ -23,26 +23,18 @@ class Event{
 
 
     public function getEventCategory($country_name){
-        try{
-            $this->di->get("Database")->beginTransaction();
-            $sql = "SELECT category FROM events WHERE country LIKE '%$country_name%' LIMIT 1";
-            
-            $res = $this->di->get("Database")->rawQuery($sql);
-            
-            $res = explode(",",$res[0]['category']);
+        $sql = "SELECT category FROM events WHERE country LIKE '%$country_name%' LIMIT 1";
+        
+        $res = $this->di->get("Database")->rawQuery($sql);
+        
+        $res = explode(",",$res[0]['category']);
 
-            $this->di->get("Database")->commit();
+        $this->di->get("Database")->commit();
 
-            return $res;
-            
-        }catch(Exception $e){
-            $this->di->get("Database")->rollback();
-            print_r($e);
-
-        }
+        return $res;
     }
 
-    public function getProducts($country_name){
+    public function getProductsForEvents($country_name){
         $category = $this->getEventCategory($country_name);
         $result = [];
         for($i=0;$i<count($category);$i++){
@@ -54,16 +46,21 @@ class Event{
         return $result;
     }
 
-    public function getProductsForBday(){
-        $category = $this->getEventCategory("birthday");
-        $result = [];
-        for($i=0;$i<count($category);$i++){
-            $cat = $category[$i];
-            $sql = "SELECT * FROM product WHERE category_name LIKE '%$cat%' LIMIT 5";
-            $res = $this->di->get("Database")->rawQuery($sql);
-            $result = array_merge($result,$res);    
+    public function getProductsForBday($user_id){
+        if($this->di->get("UserSpecific")->isBirthDay()){
+            $category = $this->getEventCategory("birthday");
+            $result = [];
+            for($i=0;$i<count($category);$i++){
+                $cat = $category[$i];
+                $sql = "SELECT * FROM product WHERE category_name LIKE '%$cat%' LIMIT 5";
+                $res = $this->di->get("Database")->rawQuery($sql);
+                $result = array_merge($result,$res);    
+            }
+            return $result;
+        }else{
+            return [];
         }
-        return $result;
+        
     }
 }
 

@@ -11,6 +11,8 @@
 
     <!-- <form action="http://localhost/essence/helper/routing.php" method="POST">
     <input type="hidden" value="4" id="product_id" name="product_id">
+    <form action="http://localhost/essence/helper/routing.php" method="POST">
+    <input type="hidden" value="7" id="product_id" name="product_id">
     <p>Quantity</p>
     <input type="text" name="quantity">
     <button type="submit" name="add-to-cart">Submit</button>

@@ -43,38 +43,42 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                             </div>
                         </div>
                         <div class="row">
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
 
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
+                            <?php
+                            $product_ids = $di->get("Category")->getCategoryUsers($category['category_name']);
+                            foreach($product_ids as $prod){
+                                $product = $di->get("Product")->getProductById($prod);
+                            ?>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="">
                                         </div>
-                                    </div>
 
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.php">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn">Add to Cart</a>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span><?php echo $product['seller_name'];?></span>
+                                            <a href="single-product-details/<?php echo $product['id'];?>">
+                                                <h6><?php echo $product['product_name'];?></h6>
+                                            </a>
+                                            <p class="product-price"> $<?php echo $product['price'];?></p>
+
+                                            <!-- Hover Content -->
+                                            <div class="hover-content">
+                                                <!-- Add to Cart -->
+                                                <div class="add-to-cart-btn">
+                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>

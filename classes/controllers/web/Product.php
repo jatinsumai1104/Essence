@@ -12,7 +12,7 @@ Class Product{
     }
 
     public function getProductByCategory($category_name){
-      return $this->di->get("Database")->readData($this->table, ["*"], "category_name= '$category_name'");
+      return $this->di->get("Database")->readData($this->table, ["*"], "category_name like '%$category_name%'");
     }
 
     public function getProductById($id){
@@ -42,8 +42,37 @@ Class Product{
               
           }
       }
+      return $product_ids;
 
      //var_dump($product_ids);
   }
+
+  public function getTotal($product_id){
+    $query = "SELECT price FROM product WHERE id={$product_id}";
+    $res = $this->di->get("Database")->rawQuery($query);
+    $res = $res[0];
+    //var_dump ($res);
+    $res = $res["price"] - $res["price"]*15/100;
+    //echo $res;
+    return $res;
+  }
+
+  public function getTotalBill($user_id){
+    $query= "SELECT p.id,p.price FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $user_id";
+    $res = $this->di->get("Database")->rawQuery($query);
+    $total_price = 0;
+    $product_ids = $this->getAllProductsOnSale();
+    foreach($res as $key => $value){
+      if(in_array($value["id"],$product_ids)){
+        $total_price += $this->getTotal($value["id"]);
+      }else{
+        $total_price+=$value["price"];
+      }
+    }
+
+    return $total_price;
+  }
+
+  
 }
 ?>

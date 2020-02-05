@@ -9,8 +9,6 @@ Class Cart{
 
     public function addToCart($data){
         try {
-            //echo "hii";
-            // Begin Transaction
             $this->di->get("Database")->beginTransaction();
             $assoc_array["product_id"] = $data["product_id"];
             $assoc_array["quantity"] = $data["quantity"];
@@ -30,6 +28,38 @@ Class Cart{
         }
     }
 
+
+    public function isPriceUpdated($user_id){
+        try{
+            $sql = "SELECT * FROM cart WHERE user_id = $user_id";
+            $res = $this->di->get("Database")->rawQuery($sql);
+            $stat = "";
+            for($i=0;$i<count($res);$i++){
+                $val = $res[$i]['product_id'];
+                if($i < count($res)-1){
+                     $stat = $stat . " id ='$val' OR";
+                }else{
+                    $stat = $stat . " id = '$val'";
+                }
+            }
+            $sql = "SELECT * FROM product WHERE" .$stat;
+            $res = $this->di->get("Database")->rawQuery($sql);
+
+            $products = [];
+            for($i=0;$i<count($res);$i++){
+                $dt = explode(" ",$res[$i]['updated_at']);
+                if($dt[0] == date("Y-m-d")){
+                    array_push($products,$res[$i]);
+                }
+            }
+            return $products;   
+
+        }catch(Exception $e){
+            print_r($e);
+        }
+        
+
+    }
     
     public function addCategoryUser($data){
         try {
@@ -90,7 +120,13 @@ Class Cart{
         }
     }
 
-    
+
+    public function getAllCartProducts($id){
+        $query = "SELECT c.*, p.product_name, p.category_name, p.price, p.image FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $id";
+        $res = $this->di->get("Database")->rawQuery($query);
+        $res["total_price"] = $this->di->get("Product")->getTotalBill($id);
+        return $res;
+    }
     
 }
 ?>
