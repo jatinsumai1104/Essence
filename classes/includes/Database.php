@@ -28,6 +28,7 @@ class Database {
     }
 
     public function rawQuery($sql){
+        // $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
