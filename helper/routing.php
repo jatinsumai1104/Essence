@@ -66,3 +66,8 @@ if(isset($_POST["get"])){
 if(isset($_POST["place_order"])){
     $di->get('Cart')->deleteCartProductsByUser($_SESSION["user_id"]);
 }
+if(isset($_POST['search_query'])){
+    echo $_POST['search'];
+    $_SESSION["search_query"]=$_POST['search'];
+    Util::redirect("shop");
+}

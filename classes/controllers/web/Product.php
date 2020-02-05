@@ -92,10 +92,11 @@ Class Product{
   }
 
   public function getReviewByProductId($id){
-    echo $id;
-    $query = "SELECT * from review where product_id={$id}";
+    // echo $id;
+    $query = "SELECT * from review inner join users on review.user_id=users.id where product_id={$id}";
     $res = $this->di->get("Database")->rawQuery($query);
-    print_r($res);
+    // print_r($res);
+    return $res;
   }
 
   

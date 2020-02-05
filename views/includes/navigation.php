@@ -25,11 +25,8 @@
                                     <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
                                     <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
-<<<<<<< HEAD
                                     <li><a href="<?php echo BASEURL;?>bestSeller">BestSeller</a></li>
-=======
                                     <li><a href="<?php echo BASEURL;?>events">Events</a></li>
->>>>>>> 373be24f2a513f217166b98c43527bd1de31f7bf
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
@@ -43,9 +40,9 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- Search Area -->
                 <div class="search-area">
-                    <form action="#" method="post">
+                    <form action="<?php echo BASEURL?>/helper/routing.php" method="post">
                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button name="search_query" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
                 <!-- User Login Info -->
