@@ -41,7 +41,7 @@ input{
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>
-                  <button type="submit" name="login_details" class="btn essence-btn" style="width: 100%">
+                  <button type="submit" name="login_submit" class="btn essence-btn" style="width: 100%">
                     Login
                   </button>
                   <hr>
