@@ -6,6 +6,7 @@ $app = __DIR__;
 require_once "{$app}/../classes/includes/Database.php";
 require_once "{$app}/../classes/includes/Hash.php";
 require_once "{$app}/../classes/controllers/web/User.php";
+require_once "{$app}/../classes/controllers/web/Category.php";
 require_once "{$app}/../classes/includes/ErrorHandler.php";
 require_once "{$app}/../classes/includes/Validator.php";
 require_once "{$app}/../classes/includes/Auth.php";

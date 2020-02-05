@@ -1,5 +1,9 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
+
+
+$categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
+
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(<?php echo BASEASSETS;?>img/bg-img/breadcumb.jpg);">
@@ -7,84 +11,23 @@ require_once(__DIR__.'/../includes/header-bp.php');
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>Products</h2>
+                        <h2>Recommend</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-
-    <!-- ##### Shop Grid Area Start ##### -->
-    <section class="shop_grid_area section-padding-80">
+<!-- ##### Shop Grid Area Start ##### -->
+<section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
-                    <div class="shop_sidebar_area">
-
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget catagory mb-50">
-                            <!-- Widget Title -->
-                            <h6 class="widget-title mb-30">Catagories</h6>
-
-                            <!--  Catagories  -->
-                            <div class="catagories-menu">
-                                <ul id="menu-content2" class="menu-content collapse show">
-                                    <!-- Single Item -->
-                                    <li>
-                                        <a href="<?php echo BASEURL;?>shop">All</a>
-                                    </li>
-                                    <li data-toggle="collapse" data-target="#clothing">
-                                        <a href="#">clothing</a>
-                                        <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="<?php echo BASEURL;?>shop/jeans">Jeans</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/jeans_men">Jeans Men</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/jeans_women">Jeans Women</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/shirt">Shirts</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/shirt_men">Shirts Men</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/shirt_women">Shirts Women</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/shirt">Shirts &amp; Blouses</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#electronics" class="collapsed">
-                                        <a href="#">Electronics</a>
-                                        <ul class="sub-menu collapse" id="electronics">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/laptop">Laptop</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/mobile">Mobiles</a></li>
-                                            <li><a href="#">Other Accessories</a></li>
-                                        </ul>
-                                    </li>
-                                    <li data-toggle="collapse" data-target="#make-up" class="collapsed">
-                                        <a href="#">Make - Up</a>
-                                        <ul class="sub-menu collapse" id="make-up">
-                                            <li><a href="<?php echo BASEURL;?>shop/make_up">All</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#books" class="collapsed">
-                                        <a href="#">Books</a>
-                                        <ul class="sub-menu collapse" id="books">
-                                            <li><a href="<?php echo BASEURL;?>shop/books">All</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/fict_name">Fiction Books</a></li>
-                                            <li><a href="<?php echo BASEURL;?>shop/nonfict_name">Non Fiction Books</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
+                    <img src="<?php echo BASEASSETS;?>img/bg-img/birthday-banner2.jpg" class="img-fluid" style="height: 100vh" alt="">
                 </div>
                 <?php 
                     $products = [];
-                    if(isset($_GET["category_name"])){
-                        $products = $di->get("Product")->getProductByCategory($_GET["category_name"]);
-                    }else{
-                        $products = $di->get("Product")->readAllProducts();
-                    }
+                    $products = $di->get("Event")->getProductsForBday(Session::getSession("user_id"));
                 ?>
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
@@ -117,7 +60,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
+                                            <p class="product-price"> $<?php echo $product['price'];?></p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">
@@ -151,9 +94,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
         </div>
     </section>
     <!-- ##### Shop Grid Area End ##### -->
-
-
-    <?php
+<?php
 require_once(__DIR__.'/../includes/footer-bp.php')
 
 ?>

@@ -9,8 +9,6 @@ Class Cart{
 
     public function addToCart($data){
         try {
-            //echo "hii";
-            // Begin Transaction
             $this->di->get("Database")->beginTransaction();
             $assoc_array["product_id"] = $data["product_id"];
             $assoc_array["quantity"] = $data["quantity"];
@@ -120,6 +118,23 @@ Class Cart{
             $this->di->get("Database")->rollback();
             
         }
+    }
+
+
+    public function getAllCartProducts($id){
+        $query = "SELECT c.*, p.product_name, p.category_name, p.price, p.image FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $id";
+        $res = $this->di->get("Database")->rawQuery($query);
+        $res["total_price"] = $this->di->get("Product")->getTotalBill($id);
+        return $res;
+    }
+
+    public function deleteCartProductsByUser($id){
+        $query = "DELETE from cart WHERE user_id={$id}";
+        if($res = $this->di->get("Database")->query($query)){
+            Session::setSession("order","Order Placed success");
+            Util::redirect("shop");
+        }
+
     }
     
 }

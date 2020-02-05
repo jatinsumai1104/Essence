@@ -34,47 +34,56 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span><?php echo $category['category_name']?></span> recommended for you are</p>
+                                        <p>People also viewed these <span><?php echo $category['category_name']?></span></p>
                                     </div>
                                     <div class="float-right">
-                                      <a href="#" class="btn essence-btn btn-sm">Show More ..</a>
+                                      <a href="<?php echo BASEURL;?>shop/<?php echo $category['category_name'];?>" class="btn essence-btn btn-sm">Show More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
 
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
+                            <?php
+                            $product_ids = $di->get("Category")->getCategoryUsers($category['category_name']);
+                            $i=0;
+                            foreach($product_ids as $prod){
+                                $i++;
+                                if($i==4){
+                                break;
+                                }
+                                $product = $di->get("Product")->getProductById($prod);
+                            ?>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="">
                                         </div>
-                                    </div>
 
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.php">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn">Add to Cart</a>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span><?php echo $product['seller_name'];?></span>
+                                            <a href="single-product-details/<?php echo $product['id'];?>">
+                                                <h6><?php echo $product['product_name'];?></h6>
+                                            </a>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
+
+                                            <!-- Hover Content -->
+                                            <div class="hover-content">
+                                                <!-- Add to Cart -->
+                                                <div class="add-to-cart-btn">
+                                                <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>

@@ -42,3 +42,8 @@ if(Session::getSession("login") != null){
   Util::createToastr($data[2], array("message" => $message, "title" => $data[0] ." ". $data[2]));
   Session::unsetSession("login");
 }
+if(Session::getSession("order") != null){
+  $data = explode(" ", Session::getSession("order"));
+  Util::createToastr($data[2], array("message" => Session::getSession("order"), "title" => $data[0] ." ". $data[1]));
+  Session::unsetSession("order");
+}

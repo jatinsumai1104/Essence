@@ -46,7 +46,16 @@ if(isset($_POST["add_category_user"])){
     //echo(json_encode("true"));
 }
 
-if(isset($_POST["add-to-cart"])){
-    //echo "hii";
+if(isset($_POST["add_cart"])){
+    // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
+}
+if(isset($_POST["get"])){
+    //echo "hii";
+    $di->get('Product')->getAllProductsOnSale();
+    $di->get('Product')->getTotalBill(1);
+    Util::redirect("shop");
+}
+if(isset($_POST["place_order"])){
+    $di->get('Cart')->deleteCartProductsByUser($_SESSION["user_id"]);
 }

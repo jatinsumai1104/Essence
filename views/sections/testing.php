@@ -12,18 +12,25 @@
 <body>
 
 
+    <!-- <form action="http://localhost/essence/helper/routing.php" method="POST">
+    <input type="hidden" value="4" id="product_id" name="product_id">
     <form action="http://localhost/essence/helper/routing.php" method="POST">
-    <input type="hidden" value="6" id="product_id" name="product_id">
+    <input type="hidden" value="7" id="product_id" name="product_id">
     <p>Quantity</p>
     <input type="text" name="quantity">
     <button type="submit" name="add-to-cart">Submit</button>
     <p id="success"></p>
+    </form> -->
+
+    <form action="http://localhost/essence/helper/routing.php" method="POST">
+    <button type="submit" name="get">click</button>
+    
     </form>
 
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
    </script> 
-   <script>
+   <!-- <script>
  $(document).ready(function() {
      $product_id = $("#product_id").val();
            $.ajax({
@@ -44,7 +51,7 @@
   });
     //console.log("hello");
         });
-</script>
+</script> -->
 </body>
 
 </html>

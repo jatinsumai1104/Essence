@@ -3,6 +3,11 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
+    <?php 
+        $products = $di->get("Cart")->getAllCartProducts(Session::getSession("user_id"));
+        $total_price = $products["total_price"];
+        unset($products["total_price"]);
+    ?>
     <div class="breadcumb_area bg-img" style="background-image: url(<?php echo BASEASSETS;?>img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -45,11 +50,10 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                 <div class="col-12 mb-3">
                                     <label for="country">Country <span>*</span></label>
                                     <select class="w-100" id="country">
-                                        <option value="usa">United States</option>
+                                        <option value="ind">India</option>
                                         <option value="uk">United Kingdom</option>
                                         <option value="ger">Germany</option>
                                         <option value="fra">France</option>
-                                        <option value="ind">India</option>
                                         <option value="aus">Australia</option>
                                         <option value="bra">Brazil</option>
                                         <option value="cana">Canada</option>
@@ -110,10 +114,14 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
                         <ul class="order-details-form mb-4">
                             <li><span>Product</span> <span>Total</span></li>
-                            <li><span>Cocktail Yellow dress</span> <span>$59.90</span></li>
-                            <li><span>Subtotal</span> <span>$59.90</span></li>
+                            <?php 
+                            foreach($products as $product){
+                            ?>
+                            <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>Rs. <?php echo $product['quantity']*$product["price"];?></span></li>
+                            <?php } ?>
+                            <li><span>Subtotal</span> <span>Rs. <?php echo $total_price;?></span></li>
                             <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span>Total</span> <span>$59.90</span></li>
+                            <li><span>Total</span> <span>Rs. <?php echo $total_price;?></span></li>
                         </ul>
 
                         <div id="accordion" role="tablist" class="mb-4">
@@ -142,33 +150,13 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header" role="tab" id="headingThree">
-                                    <h6 class="mb-0">
-                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-circle-o mr-3"></i>credit card</a>
-                                    </h6>
-                                </div>
-                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quo sint repudiandae suscipit ab soluta delectus voluptate, vero vitae</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" role="tab" id="headingFour">
-                                    <h6 class="mb-0">
-                                        <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"><i class="fa fa-circle-o mr-3"></i>direct bank transfer</a>
-                                    </h6>
-                                </div>
-                                <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est cum autem eveniet saepe fugit, impedit magni.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
 
-                        <a href="#" class="btn essence-btn">Place Order</a>
+                        <!-- <a href="#" class="btn essence-btn">Place Order</a> -->
+                        <form action="<?php echo BASEPAGES?>../../helper/routing.php" method="post">
+                        <button class="btn essence-btn" type="submit" name="place_order">Place Order</button>
+                        </form>
                     </div>
                 </div>
             </div>
