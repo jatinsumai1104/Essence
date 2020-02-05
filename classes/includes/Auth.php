@@ -119,7 +119,7 @@ class Auth {
         if($this->di->get("Hash")->verify($password,$db_password)){
           $user_id = $this->di->get("Database")->readData("users",["id"],"email='{$email}'")[0]['id'];
           // var_dump($user_type);
-          $id = $this->di->get("Database")->readData("users",["id"],"email='{$email}'");
+          $id = $this->di->get("Database")->readData("users",["id"],"email='{$email}'")[0]["id"];
           Session::setSession("user_id",$id);
           Session::setSession("login","Login User success");
           Util::redirect("");
