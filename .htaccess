@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteRule ^$ views/sections/index.php
+RewriteRule ^$ views/sections/shop.php
 RewriteRule ^login$ views/sections/login.php
 RewriteRule ^register$ views/sections/register.php
 RewriteRule ^register_patient$ views/sections/register_patient.php
