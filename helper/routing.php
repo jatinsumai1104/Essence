@@ -56,3 +56,6 @@ if(isset($_POST["get"])){
     $di->get('Product')->getTotalBill(1);
     Util::redirect("shop");
 }
+if(isset($_POST["place_order"])){
+    $di->get('Cart')->deleteCartProductsByUser($_SESSION["user_id"]);
+}

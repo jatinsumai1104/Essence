@@ -83,7 +83,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                         <li><span>Total</span> <span>Rs. <?php echo $total_price;?></span></li>
                     </ul>
 
-                    <a href="#" class="btn essence-btn">Check Out</a>
+                    <a href="<?php echo BASEURL;?>checkout" class="btn essence-btn">Check Out</a>
                   </div>
                 </div>
             </div>

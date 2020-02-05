@@ -127,6 +127,15 @@ Class Cart{
         $res["total_price"] = $this->di->get("Product")->getTotalBill($id);
         return $res;
     }
+
+    public function deleteCartProductsByUser($id){
+        $query = "DELETE from cart WHERE user_id={$id}";
+        if($res = $this->di->get("Database")->query($query)){
+            Session::setSession("order","Order Placed success");
+            Util::redirect("shop");
+        }
+
+    }
     
 }
 ?>
