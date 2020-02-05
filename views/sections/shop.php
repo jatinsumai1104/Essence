@@ -34,51 +34,39 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                     <li data-toggle="collapse" data-target="#clothing">
                                         <a href="#">clothing</a>
                                         <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans">Jeans</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans_men">Jeans Men</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/jeans_women">Jeans Women</a></li>
                                             <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                            <li><a href="#">Shirts Men</a></li>
+                                            <li><a href="#">Shirts Women</a></li>
+                                            <li><a href="#">Dresses</a></li>
+                                            <li><a href="#">Shirts &amp; Blouses</a></li>
                                         </ul>
                                     </li>
                                     <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#shoes" class="collapsed">
-                                        <a href="#">shoes</a>
-                                        <ul class="sub-menu collapse" id="shoes">
+                                    <li data-toggle="collapse" data-target="#electronics" class="collapsed">
+                                        <a href="#">Electronics</a>
+                                        <ul class="sub-menu collapse" id="electronics">
                                             <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                            <li><a href="<?php echo BASEURL;?>shop/laptop">Laptop</a></li>
+                                            <li><a href="#">Mobiles</a></li>
+                                            <li><a href="#">Other Accessories</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-toggle="collapse" data-target="#make-up" class="collapsed">
+                                        <a href="#">Make - Up</a>
+                                        <ul class="sub-menu collapse" id="make-up">
+                                            <li><a href="#">All</a></li>
                                         </ul>
                                     </li>
                                     <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#accessories" class="collapsed">
-                                        <a href="#">accessories</a>
-                                        <ul class="sub-menu collapse" id="accessories">
+                                    <li data-toggle="collapse" data-target="#books" class="collapsed">
+                                        <a href="#">Books</a>
+                                        <ul class="sub-menu collapse" id="books">
                                             <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                            <li><a href="#">Fiction Books</a></li>
+                                            <li><a href="#">Non Fiction Books</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -104,40 +92,6 @@ require_once(__DIR__.'/../includes/header-bp.php');
                             </div>
                         </div>
 
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget color mb-50">
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Color</p>
-                            <div class="widget-desc">
-                                <ul class="d-flex">
-                                    <li><a href="#" class="color1"></a></li>
-                                    <li><a href="#" class="color2"></a></li>
-                                    <li><a href="#" class="color3"></a></li>
-                                    <li><a href="#" class="color4"></a></li>
-                                    <li><a href="#" class="color5"></a></li>
-                                    <li><a href="#" class="color6"></a></li>
-                                    <li><a href="#" class="color7"></a></li>
-                                    <li><a href="#" class="color8"></a></li>
-                                    <li><a href="#" class="color9"></a></li>
-                                    <li><a href="#" class="color10"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- ##### Single Widget ##### -->
-                        <div class="widget brands mb-50">
-                            <!-- Widget Title 2 -->
-                            <p class="widget-title2 mb-30">Brands</p>
-                            <div class="widget-desc">
-                                <ul>
-                                    <li><a href="#">Asos</a></li>
-                                    <li><a href="#">Mango</a></li>
-                                    <li><a href="#">River Island</a></li>
-                                    <li><a href="#">Topshop</a></li>
-                                    <li><a href="#">Zara</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -169,7 +123,13 @@ require_once(__DIR__.'/../includes/header-bp.php');
                         
                         <div class="row">
                             <?php 
-                                $products = $di->get("Product")->readAllProducts();
+                                $products = [];
+                                if(isset($_GET["category_name"])){
+                                    $products = $di->get("Product")->getProductByCategory($_GET["category_name"]);
+                                }else{
+                                    $products = $di->get("Product")->readAllProducts();
+                                }
+                                
                                 foreach($products as $product){
                             ?>
                                 <!-- Single Product -->
@@ -183,7 +143,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                                         <!-- Product Description -->
                                         <div class="product-description">
                                             <span><?php echo $product['seller_name'];?></span>
-                                            <a href="single-product-details/<?php echo $product['id'];?>">
+                                            <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
                                             <p class="product-price"> $<?php echo $product['price'];?></p>
