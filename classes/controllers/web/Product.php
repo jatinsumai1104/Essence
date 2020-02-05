@@ -12,7 +12,7 @@ Class Product{
     }
 
     public function getProductByCategory($category_name){
-      return $this->di->get("Database")->readData($this->table, ["*"], "category_name= '$category_name'");
+      return $this->di->get("Database")->readData($this->table, ["*"], "category_name like '%$category_name%'");
     }
 
     public function getProductById($id){
