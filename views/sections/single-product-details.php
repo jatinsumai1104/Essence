@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
 $product = $di->get("Product")->getProductById($_GET["product_id"]);
+$review = $di->get("Product")->getReviewByProductId($_GET["product_id"]);
 ?>
     <!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">

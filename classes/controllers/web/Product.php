@@ -75,6 +75,13 @@ Class Product{
     return $total_price;
   }
 
+  public function getReviewByProductId($id){
+    echo $id;
+    $query = "SELECT * from review where product_id={$id}";
+    $res = $this->di->get("Database")->rawQuery($query);
+    print_r($res);
+  }
+
   
 }
 ?>

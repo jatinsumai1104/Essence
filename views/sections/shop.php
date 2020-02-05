@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
+// echo $_SESSION['user_id'];
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(<?php echo BASEASSETS;?>img/bg-img/breadcumb.jpg);">
