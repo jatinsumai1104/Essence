@@ -8,7 +8,11 @@ Class Product{
     }
 
     public function readAllProducts(){
-      $this->di->get("Database")->readData($this->table);
+      return $this->di->get("Database")->readData($this->table);
+    }
+
+    public function getProductById($id){
+      return $this->di->get("Database")->readData($this->table, ["*"], "id={$id}")[0];
     }
 }
 ?>
