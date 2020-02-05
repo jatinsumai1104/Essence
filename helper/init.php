@@ -18,4 +18,6 @@ $di->set("Patient",new Patient($di));
 $di->set("Appointment",new Appointment($di));
 $di->set("Specialization",new Specialization($di));
 
+
+$di->set("Event",new Event($di));
 // $tokenHandler->build();
