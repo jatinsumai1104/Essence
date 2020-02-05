@@ -8,7 +8,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>Cart</h2>
+                        <h2>Recommend</h2>
                     </div>
                 </div>
             </div>
@@ -54,85 +54,17 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                     <!-- Product Description -->
                                     <div class="product-description">
                                         <span>topshop</span>
-                                        <a href="single-product-details.html">
+                                        <a href="single-product-details.php">
                                             <h6>Knot Front Mini Dress</h6>
                                         </a>
                                         <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
-
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
+                                        <!-- Hover Content -->
+                                        <div class="hover-content">
+                                            <!-- Add to Cart -->
+                                            <div class="add-to-cart-btn">
+                                                <a href="#" class="btn essence-btn">Add to Cart</a>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.html">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
-
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.html">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
-
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.html">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
                                     </div>
                                 </div>
                             </div>
