@@ -53,7 +53,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                     <!-- Product Description -->
                                     <div class="product-description">
                                         <span>topshop</span>
-                                        <a href="single-product-details.html">
+                                        <a href="single-product-details.php">
                                             <h6>Knot Front Mini Dress</h6>
                                         </a>
                                         <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
