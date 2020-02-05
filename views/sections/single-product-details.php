@@ -20,7 +20,7 @@ $review = $di->get("Product")->getReviewByProductId($_GET["product_id"]);
             <a href="cart.html">
                 <h2><?php echo $product['product_name'];?></h2>
             </a>
-            <p class="product-price"><span class="old-price">$<?php echo rand($product['price']-10, $product['price']);?></span> $<?php echo $product['price'];?></p>
+            <p class="product-price"><span class="old-price">Rs <?php echo $product['price'];?></span> Rs.<?php echo rand($product['price']-100, $product['price']);?></p>
             <p class="product-desc"><?php echo $product['product_description'];?></p>
 
                 <!-- Cart & Favourite Box -->
