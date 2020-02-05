@@ -105,12 +105,8 @@ class Auth {
     }
 
     public function login($input){
-      
-
       $email = $input['email'];
       $password = $input['password'];
-      $user_type = $input['user_type'][0];
-
       // $this->di->get("Database")->beginTransaction();
 
       if(!$this->di->get("Database")->exists("users",["email"=>$email])){
@@ -119,14 +115,13 @@ class Auth {
       }else{
         $hashed_password =$this->di->get("Database")->readData("users",["password"],"email='{$email}'");
         $db_password = $hashed_password[0]['password'];
-        
-        if($db_password == $password){
+        // die($db_password . "     " .$hashed_password);
+        if($this->di->get("Hash")->verify($password,$db_password)){
           $user_id = $this->di->get("Database")->readData("users",["id"],"email='{$email}'")[0]['id'];
-          var_dump($user_type);
-          $id = $this->di->get("Database")->readData($user_type, ["id"], "user_id=".$user_id)[0]["id"];
+          // var_dump($user_type);
+          $id = $this->di->get("Database")->readData("users",["id"],"email='{$email}'")[0]["id"];
           Session::setSession("user_id",$id);
-          Session::setSession("user_type",$user_type);
-          Session::setSession("login","Login Employee success");
+          Session::setSession("login","Login User success");
           Util::redirect("");
         }else{
           Session::setSession("login","Login Incorrect_username/password error");

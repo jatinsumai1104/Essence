@@ -10,3 +10,24 @@
     <script src="<?php echo BASEASSETS;?>js/classy-nav.min.js"></script>
     <!-- Active js -->
     <script src="<?php echo BASEASSETS;?>js/active.js"></script>
+    <script src="<?php echo BASEASSETS; ?>vendors/bootstrap-toastr/toastr.min.js"></script>
+    <script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    </script>
+    <?php require_once(__DIR__."/toasters.php");?>

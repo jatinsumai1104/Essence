@@ -1,6 +1,8 @@
 <?php
-require_once(__DIR__.'/header.php')
-
+require_once(__DIR__.'/header.php');
+if(Session::getSession("user_id") == null){
+    Util::redirect("login");
+}
 ?>
 
 <body>

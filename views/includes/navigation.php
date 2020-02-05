@@ -3,7 +3,7 @@
             <!-- Classy Menu -->
             <nav class="classy-navbar" id="essenceNav">
                 <!-- Logo -->
-                <a class="nav-brand" href="index.php"><img src="<?php echo BASEASSETS;?>img/core-img/logo.png" alt=""></a>
+                <a class="nav-brand" href="index"><img src="<?php echo BASEASSETS;?>img/core-img/logo.png" alt=""></a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -21,27 +21,27 @@
                                 <div class="megamenu">
                                     <ul class="single-mega cn-col-4">
                                         <li class="title">Women's Collection</li>
-                                        <li><a href="shop.php">Dresses</a></li>
-                                        <li><a href="shop.php">Blouses &amp; Shirts</a></li>
-                                        <li><a href="shop.php">T-shirts</a></li>
-                                        <li><a href="shop.php">Rompers</a></li>
-                                        <li><a href="shop.php">Bras &amp; Panties</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Dresses</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Blouses &amp; Shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">T-shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Rompers</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Bras &amp; Panties</a></li>
                                     </ul>
                                     <ul class="single-mega cn-col-4">
                                         <li class="title">Men's Collection</li>
-                                        <li><a href="shop.php">T-Shirts</a></li>
-                                        <li><a href="shop.php">Polo</a></li>
-                                        <li><a href="shop.php">Shirts</a></li>
-                                        <li><a href="shop.php">Jackets</a></li>
-                                        <li><a href="shop.php">Trench</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">T-Shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Polo</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Jackets</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Trench</a></li>
                                     </ul>
                                     <ul class="single-mega cn-col-4">
                                         <li class="title">Kid's Collection</li>
-                                        <li><a href="shop.php">Dresses</a></li>
-                                        <li><a href="shop.php">Shirts</a></li>
-                                        <li><a href="shop.php">T-shirts</a></li>
-                                        <li><a href="shop.php">Jackets</a></li>
-                                        <li><a href="shop.php">Trench</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Dresses</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">T-shirts</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Jackets</a></li>
+                                        <li><a href="<?php echo BASEURL;?>shop">Trench</a></li>
                                     </ul>
                                     <div class="single-mega cn-col-4">
                                         <img src="<?php echo BASEASSETS;?>img/bg-img/bg-6.jpg" alt="">
@@ -50,22 +50,18 @@
                             </li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="shop.php">Shop</a></li>
-                                    <li><a href="single-product-details.php">Product Details</a></li>
-                                    <li><a href="checkout.php">Checkout</a></li>
-                                    <li><a href="blog.php">Blog</a></li>
-                                    <li><a href="single-blog.php">Single Blog</a></li>
-                                    <li><a href="regular-page.php">Regular Page</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                    <li><a href="login.php">Login</a></li>
-                                    <li><a href="register.php">Register</a></li>
-                                    <li><a href="forgot-password.php">Forgot Password</a></li>
-                                    <li><a href="recommend.php">Recommend</a></li>
+                                    <li><a href="<?php echo BASEURL;?>index">Home</a></li>
+                                    <li><a href="<?php echo BASEURL;?>shop">Shop</a></li>
+                                    <li><a href="<?php echo BASEURL;?>single-product-details">Product Details</a></li>
+                                    <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
+                                    <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
+                                    <li><a href="<?php echo BASEURL;?>login">Login</a></li>
+                                    <li><a href="<?php echo BASEURL;?>register">Register</a></li>
+                                    <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
+                                    <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.php">Blog</a></li>
-                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -89,10 +85,27 @@
                 <div class="user-login-info">
                     <a href="#"><img src="<?php echo BASEASSETS;?>img/core-img/user.svg" alt=""></a>
                 </div>
+                <!-- User Login Info -->
+                <form method="post" action="<?php echo BASEURL;?>helper/routing.php">
+                    <div class="user-login-info">
+                        <button class="btn" name="logout" href="#" style="position: relative;
+    z-index: 1;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 90px;
+    flex: 0 0 90px;
+    width: 90px;
+    display: block;
+    text-align: center;
+    border-left: 1px solid #ebebeb;
+    height: 100%;
+    line-height: 72px;">Logout</button>
+                    </div>
+                </form>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="cart.php" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""></a>
+                    <a href="cart" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""></a>
                 </div>
+
             </div>
 
         </div>
