@@ -1,5 +1,8 @@
 <?php
-require_once(__DIR__.'/../includes/header-bp.php')
+require_once(__DIR__.'/../includes/header-bp.php');
+
+
+$categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
 
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
@@ -17,6 +20,10 @@ require_once(__DIR__.'/../includes/header-bp.php')
     <!-- ##### Breadcumb Area End ##### -->
 
     <!-- ##### Shop Grid Area Start ##### -->
+    <?php
+    foreach($categories as $category){
+        // print_r($category);
+    ?>
     <section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
@@ -27,7 +34,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>1</span> products found</p>
+                                        <p><span><?php echo $category['category_name']?></span> recommended for you are</p>
                                     </div>
                                     <div class="float-right">
                                       <a href="#" class="btn essence-btn btn-sm">Show More ..</a>
@@ -74,6 +81,9 @@ require_once(__DIR__.'/../includes/header-bp.php')
             </div>
         </div>
     </section>
+    <?php
+    }
+    ?>
     <!-- ##### Shop Grid Area End ##### -->
     <?php
 require_once(__DIR__.'/../includes/footer-bp.php')
