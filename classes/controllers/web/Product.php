@@ -70,7 +70,7 @@ Class Product{
       }
     }
     //var_dump($value["quantity"]);
-    var_dump($res);
+    //var_dump($res);
 
     return $total_price;
   }

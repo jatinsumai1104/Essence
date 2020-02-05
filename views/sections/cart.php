@@ -56,7 +56,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['product_id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?> <span><button class="btn btn-danger float-right">Delete</button></span></p>
+                                            <p class="product-price"> $<?php echo $product['price'];?> <span><button type="button" class="btn btn-danger float-right delete-from-cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Delete</button></span></p>
                                         </div>
                                     </div>
                                 </div>
