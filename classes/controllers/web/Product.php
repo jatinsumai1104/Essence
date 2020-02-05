@@ -1,6 +1,6 @@
 <?php
 
-Class Cart{
+Class Product{
     protected $di;
     protected $table = "product";
     public function __construct($di){
