@@ -28,9 +28,6 @@ class Event{
         $res = $this->di->get("Database")->rawQuery($sql);
         
         $res = explode(",",$res[0]['category']);
-
-        $this->di->get("Database")->commit();
-
         return $res;
     }
 
@@ -47,7 +44,7 @@ class Event{
     }
 
     public function getProductsForBday($user_id){
-        if($this->di->get("UserSpecific")->isBirthDay()){
+        if($this->di->get("UserSpecific")->isBirthDay($user_id)){
             $category = $this->getEventCategory("birthday");
             $result = [];
             for($i=0;$i<count($category);$i++){

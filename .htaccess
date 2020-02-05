@@ -12,3 +12,4 @@ RewriteRule ^contact$ views/sections/contact.php
 RewriteRule ^recommend$ views/sections/recommend.php
 RewriteRule ^cart$ views/sections/cart.php
 RewriteRule ^index$ views/sections/index.php
+RewriteRule ^events$ views/sections/events.php
