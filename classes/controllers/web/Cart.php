@@ -124,8 +124,7 @@ Class Cart{
     public function getAllCartProducts($id){
         $query = "SELECT c.*, p.product_name, p.category_name, p.price, p.image FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $id";
         $res = $this->di->get("Database")->rawQuery($query);
-        $query = "SELECT sum(p.price*c.quantity) as total_price FROM cart as c INNER JOIN product as p on c.product_id = p.id where c.user_id = $id GROUP BY c.user_id";
-        $res["total_price"] = $this->di->get("Database")->rawQuery($query)[0]["total_price"];
+        $res["total_price"] = $this->di->get("Product")->getTotalBill($id);
         return $res;
     }
     

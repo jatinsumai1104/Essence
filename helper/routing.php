@@ -49,5 +49,10 @@ if(isset($_POST["add_category_user"])){
 if(isset($_POST["add_cart"])){
     // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
-    Util::redirect("shop");
+}
+if(isset($_POST["get"])){
+    //echo "hii";
+    $di->get('Product')->getAllProductsOnSale();
+    $di->get('Product')->getTotalBill(1);
+    //Util::redirect("shop");
 }
