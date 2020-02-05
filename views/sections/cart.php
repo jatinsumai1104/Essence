@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__.'/../includes/header-bp.php')
+require_once(__DIR__.'/../includes/header-bp.php');
+//echo $_SESSION["user_id"];
 
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
@@ -56,7 +57,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['product_id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?> <span><button type="button" class="btn btn-danger float-right delete-from-cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Delete</button></span></p>
+                                            <p class="product-price"> $<?php echo $product['price'];?> <span><button type="button" class="btn btn-danger float-right delete-from-cart" id="<?php echo $product["product_id"]?>" href="#" data-toggle="modal" data-target="#delete-cart-modal" class_name="Category">Delete</button></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -76,11 +77,11 @@ require_once(__DIR__.'/../includes/header-bp.php')
                         <?php 
                             foreach($products as $product){
                         ?>
-                        <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>$<?php echo $product['quantity']*$product["price"];?></span></li>
+                        <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>Rs. <?php echo $product['quantity']*$product["price"];?></span></li>
                         <?php } ?>
-                        <li><span>Subtotal</span> <span>$<?php echo $total_price;?></span></li>
+                        <li><span>Subtotal</span> <span>Rs. <?php echo $total_price;?></span></li>
                         <li><span>Shipping</span> <span>Free</span></li>
-                        <li><span>Total</span> <span>$<?php echo $total_price;?></span></li>
+                        <li><span>Total</span> <span>Rs. <?php echo $total_price;?></span></li>
                     </ul>
 
                     <a href="#" class="btn essence-btn">Check Out</a>

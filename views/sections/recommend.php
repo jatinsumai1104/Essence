@@ -37,7 +37,7 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                         <p>People also viewed these <span><?php echo $category['category_name']?></span></p>
                                     </div>
                                     <div class="float-right">
-                                      <a href="<?php echo BASEURL;?>shop/<?php echo $category['category_name'];?>" class="btn essence-btn btn-sm">Show More ..</a>
+                                      <a href="<?php echo BASEURL;?>shop/<?php echo $category['category_name'];?>" class="btn essence-btn btn-sm">Show More</a>
                                     </div>
                                 </div>
                             </div>

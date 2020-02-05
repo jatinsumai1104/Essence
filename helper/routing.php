@@ -50,9 +50,16 @@ if(isset($_POST["add_cart"])){
     // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
 }
+
+if(isset($_POST["delete_cart"])){
+    // var_dump($_POST);
+    $di->get('Cart')->deleteProductFromCart($_POST);
+    Util::redirect("cart");
+}
+
 if(isset($_POST["get"])){
     //echo "hii";
     $di->get('Product')->getAllProductsOnSale();
-    $di->get('Product')->getTotalBill(1);
-    //Util::redirect("shop");
+    //$di->get('Product')->getTotalBill(1);
+    Util::redirect("shop");
 }

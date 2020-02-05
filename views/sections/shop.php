@@ -7,7 +7,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>dresses</h2>
+                        <h2>Products</h2>
                     </div>
                 </div>
             </div>
