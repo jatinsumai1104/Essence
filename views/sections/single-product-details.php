@@ -57,3 +57,23 @@ require_once(__DIR__.'/../includes/header-bp.php')
 require_once(__DIR__.'/../includes/footer-bp.php')
 
 ?>
+<script>
+ $(document).ready(function() {
+     $product_id = $("#product_id").val();
+           $.ajax({
+    url: "http://localhost/stock_quote/helper/routing.php",
+    method: "POST",
+    data: {
+      add_category_user: true,
+      product_id:$product_id
+    },
+    dataType: "json",
+    success: function(data) {
+      
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+        });
+</script>

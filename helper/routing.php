@@ -39,3 +39,11 @@ if (isset($_POST['logout'])){
 if(isset($_POST["predict_result"])){
     var_dump($_POST);
 }
+
+if(isset($_POST["add_category_user"])){
+    $di->get('Cart')->addCategoryUser($_POST);
+}
+
+if(isset($_POST["add-to-cart"])){
+    $di->get('Cart')->addToCart($_POST);
+}
