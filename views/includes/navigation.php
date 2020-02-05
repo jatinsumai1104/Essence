@@ -17,37 +17,7 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
-                            <li><a href="#">Shop</a>
-                                <div class="megamenu">
-                                    <ul class="single-mega cn-col-4">
-                                        <li class="title">Women's Collection</li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Dresses</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Blouses &amp; Shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">T-shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Rompers</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Bras &amp; Panties</a></li>
-                                    </ul>
-                                    <ul class="single-mega cn-col-4">
-                                        <li class="title">Men's Collection</li>
-                                        <li><a href="<?php echo BASEURL;?>shop">T-Shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Polo</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Jackets</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Trench</a></li>
-                                    </ul>
-                                    <ul class="single-mega cn-col-4">
-                                        <li class="title">Kid's Collection</li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Dresses</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">T-shirts</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Jackets</a></li>
-                                        <li><a href="<?php echo BASEURL;?>shop">Trench</a></li>
-                                    </ul>
-                                    <div class="single-mega cn-col-4">
-                                        <img src="<?php echo BASEASSETS;?>img/bg-img/bg-6.jpg" alt="">
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo BASEURL;?>index">Home</a></li>
@@ -103,7 +73,7 @@
                 </form>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="cart" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""></a>
+                    <a href="<?php echo BASEURL;?>cart" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""></a>
                 </div>
 
             </div>

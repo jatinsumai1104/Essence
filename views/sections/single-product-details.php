@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__.'/../includes/header-bp.php');
-$product = $di->get("Product")->getProductById($_GET["product"]);
+$product = $di->get("Product")->getProductById($_GET["product_id"]);
 ?>
     <!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">
@@ -22,38 +22,36 @@ $product = $di->get("Product")->getProductById($_GET["product"]);
             <p class="product-price"><span class="old-price">$<?php echo rand($product['price']-10, $product['price']);?></span> $<?php echo $product['price'];?></p>
             <p class="product-desc"><?php echo $product['product_description'];?></p>
 
-            <!-- Form -->
-            <form class="cart-form clearfix" method="post">
                 <!-- Cart & Favourite Box -->
-                <div class="cart-fav-box d-flex align-items-center">
-                    <!-- Cart -->
-                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
-                </div>
-            </form>
+            <div class="cart-fav-box d-flex align-items-center">
+                <!-- Cart -->
+                <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
+            </div>
         </div>
     </section>
     <!-- ##### Single Product Details Area End ##### -->
     <?php
-require_once(__DIR__.'/../includes/footer-bp.php')
+require_once(__DIR__.'/../includes/footer-bp.php');
+require_once(__DIR__.'/../includes/add-cart-modal.php');
 
 ?>
 <script>
  $(document).ready(function() {
-     $product_id = $("#product_id").val();
-           $.ajax({
-    url: "http://localhost/stock_quote/helper/routing.php",
-    method: "POST",
-    data: {
-      add_category_user: true,
-      product_id:$product_id
-    },
-    dataType: "json",
-    success: function(data) {
-      
-    },
-    error: function(error) {
-      console.log(error);
-    }
-  });
+     $product_id = <?php echo $_GET["product_id"]?>;
+    $.ajax({
+        url: "http://localhost/essence/helper/routing.php",
+        method: "POST",
+        data: {
+        add_category_user: true,
+        product_id:$product_id
+        },
+        dataType: "json",
+        success: function(data) {
+        },
+        error: function(error) {
+        console.log(error);
+        }
+    });
+    //console.log("hello");
         });
 </script>

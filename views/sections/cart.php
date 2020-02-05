@@ -15,55 +15,56 @@ require_once(__DIR__.'/../includes/header-bp.php')
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-
+    <?php 
+        $products = $di->get("Cart")->getAllCartProducts(Session::getSession("user_id"));
+        $total_price = $products["total_price"];
+        unset($products["total_price"]);
+    ?>
     <!-- ##### Shop Grid Area Start ##### -->
     <section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-9">
+                <div class="col-12 col-md-8 col-lg-8">
                     <div class="shop_grid_product_area">
                         <div class="row">
                             <div class="col-12">
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>1</span> products found</p>
+                                        <p><span><?php echo count($products);?></span> products found in the cart</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
+                        <?php 
+                                foreach($products as $product){
+                            ?>
+                                <!-- Single Product -->
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="">
+                                        </div>
 
-                            <!-- Single Product -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="<?php echo BASEASSETS;?>img/product-img/product-1.jpg" alt="">
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img" src="<?php echo BASEASSETS;?>img/product-img/product-2.jpg" alt="">
-
-                                        <!-- Product Badge -->
-                                        <div class="product-badge offer-badge">
-                                            <span>-30%</span>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span><?php echo $product['category_name'];?></span>
+                                            <span class="float-right">Quantity: <?php echo $product['quantity'];?></span>
+                                            <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
+                                                <h6><?php echo $product['product_name'];?></h6>
+                                            </a>
+                                            <p class="product-price"> $<?php echo $product['price'];?></p>
                                         </div>
                                     </div>
-
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>topshop</span>
-                                        <a href="single-product-details.php">
-                                            <h6>Knot Front Mini Dress</h6>
-                                        </a>
-                                        <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-                                    </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3">
+                <div class="col-12 col-md-4 col-lg-4">
                   <div class="order-details-confirmation">
                     <div class="cart-page-heading">
                         <h5>Your Order</h5>
@@ -72,10 +73,14 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
                     <ul class="order-details-form mb-4">
                         <li><span>Product</span> <span>Total</span></li>
-                        <li><span>Cocktail Yellow dress</span> <span>$59.90</span></li>
-                        <li><span>Subtotal</span> <span>$59.90</span></li>
+                        <?php 
+                            foreach($products as $product){
+                        ?>
+                        <li><span><?php echo $product['product_name'] ." * ".$product['quantity'];?></span> <span>$<?php echo $product['quantity']*$product["price"];?></span></li>
+                        <?php } ?>
+                        <li><span>Subtotal</span> <span>$<?php echo $total_price;?></span></li>
                         <li><span>Shipping</span> <span>Free</span></li>
-                        <li><span>Total</span> <span>$59.90</span></li>
+                        <li><span>Total</span> <span>$<?php echo $total_price;?></span></li>
                     </ul>
 
                     <a href="#" class="btn essence-btn">Check Out</a>

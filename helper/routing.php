@@ -46,7 +46,8 @@ if(isset($_POST["add_category_user"])){
     //echo(json_encode("true"));
 }
 
-if(isset($_POST["add-to-cart"])){
-    //echo "hii";
+if(isset($_POST["add_cart"])){
+    // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
+    Util::redirect("shop");
 }
