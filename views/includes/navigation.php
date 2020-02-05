@@ -59,6 +59,7 @@
                                     <li><a href="<?php echo BASEURL;?>register">Register</a></li>
                                     <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
+                                    <li><a href="<?php echo BASEURL;?>bestSeller">BestSeller</a></li>
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
