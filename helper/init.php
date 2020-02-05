@@ -15,5 +15,6 @@ $di->set("Validator", new Validator($di));
 
 
 $di->set("Cart",new Cart($di));
+$di->set("Product",new Product($di));
 
 // $tokenHandler->build();
