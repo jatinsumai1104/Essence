@@ -61,6 +61,7 @@
                                     <li><a href="login.php">Login</a></li>
                                     <li><a href="register.php">Register</a></li>
                                     <li><a href="forgot-password.php">Forgot Password</a></li>
+                                    <li><a href="recommend.php">Recommend</a></li>
                                 </ul>
                             </li>
                             <li><a href="blog.php">Blog</a></li>
@@ -90,7 +91,7 @@
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""> <span>3</span></a>
+                    <a href="cart.php" id="essenceCartBtn"><img src="<?php echo BASEASSETS;?>img/core-img/bag.svg" alt=""></a>
                 </div>
             </div>
 
