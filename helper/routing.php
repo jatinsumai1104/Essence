@@ -41,9 +41,12 @@ if(isset($_POST["predict_result"])){
 }
 
 if(isset($_POST["add_category_user"])){
+    //echo "hello";
     $di->get('Cart')->addCategoryUser($_POST);
+    //echo(json_encode("true"));
 }
 
 if(isset($_POST["add-to-cart"])){
+    //echo "hii";
     $di->get('Cart')->addToCart($_POST);
 }
