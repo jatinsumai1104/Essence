@@ -20,9 +20,7 @@
                             
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    
                                     <li><a href="<?php echo BASEURL;?>shop">Shop</a></li>
-                                    <li><a href="<?php echo BASEURL;?>single-product-details">Product Details</a></li>
                                     <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
                                     <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
                                     <li><a href="<?php echo BASEURL;?>login">Login</a></li>

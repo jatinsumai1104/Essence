@@ -8,7 +8,7 @@ Class Product{
     }
 
     public function readAllProducts(){
-      return $this->di->get("Database")->readData($this->table);
+      return $this->di->get("Database")->rawQuery("SELECT * from product ORDER BY category_name");
     }
 
     public function getProductByCategory($category_name){
