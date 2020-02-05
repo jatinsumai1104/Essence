@@ -30,6 +30,7 @@ class UserSpecific{
         }
         return false;
     }
+
 }
 
 ?>
