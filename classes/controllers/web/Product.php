@@ -102,20 +102,24 @@ Class Product{
   public function boughtTogether($product_id){
     $sql = "SELECT also_bought_with FROM mapping_table WHERE product_id = $product_id";
     $res = $this->di->get("Database")->rawQuery($sql);
-    $str = explode(",",$res[0]['also_bought_with']);
-    $stat = "";
-    for($i=0;$i<count($str);$i++){
-      $val = $str[$i];
-      if($i<count($str)-1){
-        $stat = $stat . " id = $val OR";
-      }else{
-        $stat = $stat . " id = $val";
+    if(isset($res[0])){
+      $str = explode(",",$res[0]['also_bought_with']);
+      $stat = "";
+      for($i=0;$i<count($str);$i++){
+        $val = $str[$i];
+        if($i<count($str)-1){
+          $stat = $stat . " id = $val OR";
+        }else{
+          $stat = $stat . " id = $val";
+        }
+        
       }
-      
+      $sql = "SELECT * FROM product WHERE".$stat;
+      $res = $this->di->get("Database")->rawQuery($sql);
+      return $res;
+    }else{
+      return [];
     }
-    $sql = "SELECT * FROM product WHERE".$stat;
-    $res = $this->di->get("Database")->rawQuery($sql);
-    return $res;
   }
 
   

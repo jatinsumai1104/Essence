@@ -74,7 +74,7 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
                                                 <div class="add-to-cart-btn">
-                                                <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
+                                                <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $product['id']?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
                                                 </div>
                                             </div>
                                         </div>
