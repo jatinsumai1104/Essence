@@ -19,16 +19,29 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
     </div>
     <!-- ##### Breadcumb Area End ##### -->
 <!-- ##### Shop Grid Area Start ##### -->
+<?php 
+    $products = [];
+    $products = $di->get("Event")->getProductsForBday(Session::getSession("user_id"));
+    $status = "birthday";
+    if(count($products) == 0){
+        $products = $di->get("Event")->getProductsForEvents($di->get("User")->getUserCountry(Session::getSession("user_id")));
+        $status = "event";
+    }
+?>
 <section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
-                    <img src="<?php echo BASEASSETS;?>img/bg-img/birthday-banner2.jpg" class="img-fluid" style="height: 100vh" alt="">
+                    <img src="<?php echo BASEASSETS;?>img/bg-img/<?php
+                        if($_SESSION['user_id']==2){
+                            echo "birthday-banner2.jpg";
+                        }else{
+                            echo $status == "birthday" ? "birthday-banner2.jpg" : "event-banner-2.jpg";
+                        }
+                        
+                    ?>"  style="height: 100vh" alt="">
                 </div>
-                <?php 
-                    $products = [];
-                    $products = $di->get("Event")->getProductsForBday(Session::getSession("user_id"));
-                ?>
+                
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
                         <div class="row">
@@ -60,7 +73,7 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?></p>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">

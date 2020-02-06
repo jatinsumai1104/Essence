@@ -49,6 +49,7 @@ if(isset($_POST["add_category_user"])){
 if(isset($_POST["add_cart"])){
     // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
+    Util::redirect("cart");
 }
 
 if(isset($_POST["delete_cart"])){
@@ -84,7 +85,8 @@ if(isset($_POST['chatbot'])){
     // echo strlen($output);
     // echo $output;
     // echo "hello";
-    $products = $di->get("Database")->rawQuery("SELECT id,product_name,category_name,short_description from product where category_name like '%{$output}%'");
+    
+    $products = $di->get("Database")->rawQuery("SELECT id,product_name,short_description from product where category_name like '%{$output}%'");
     // print_r($products);
     echo json_encode($products);
 }

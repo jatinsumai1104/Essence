@@ -9,8 +9,8 @@ $review = $di->get("Product")->getReviewByProductId($_GET["product_id"]);
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides owl-carousel">
-                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 60%">
-                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" style="width: 60%">
+                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" class="float-right" style="width: 60%">
+                <img src="<?php echo 'data:image/jpeg;base64,'.base64_encode( $product['image'] );?>" alt="" class="float-right" style="width: 60%">
             </div>
         </div>
 
@@ -28,14 +28,19 @@ $review = $di->get("Product")->getReviewByProductId($_GET["product_id"]);
                 <!-- Cart -->
                 <button type="button" name="add_to_cart" class="btn essence-btn add_to_cart" id="<?php echo $_GET["product_id"]?>" href="#" data-toggle="modal" data-target="#add-cart-modal" class_name="Category">Add to Cart</button>
             </div>
-
-            Product Reviews:
-            <br>
+            <p class="product-price mt-3">Product Reviews:</p>
+            <!-- Product Reviews:
+            <br> -->
 
             <?php
                 foreach($review as $res){
-                    echo $res['name'].":  ". $res['description']. "  ". $res['rating'];
-                    echo "<br>";
+            ?>
+                <h5><?php echo $res['name'];?> <span class="float-right">Ratings: <?php echo $res['rating'];?> / 5.0</span></h5>
+                <p><?php echo $res['description'];?></p>
+                
+                    <!-- echo $res['name'].":  ". $res['description']. "  ". $res['rating'];
+                    echo "<br>"; -->
+            <?php
                 }
             ?>
 
