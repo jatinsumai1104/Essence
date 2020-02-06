@@ -11,3 +11,4 @@ if(Session::getSession("user_id") == null){
         require_once(__DIR__.'/navigation.php')
     ?>
     <!-- ##### Header Area End ##### -->
+    
