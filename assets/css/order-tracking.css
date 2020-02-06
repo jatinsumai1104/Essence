@@ -1,0 +1,123 @@
+.background {
+  background-color: #36454f;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.background .container {
+  border-radius: 40px;
+  background-color: #fff;
+  max-width: 450px;
+  height: 900px;
+}
+.background .container .header {
+  border: 1px solid lightgray;
+  padding: 40px 0px 20px 0px;
+  margin-top: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.background .container .header .icon-back {
+  font-size: 30px;
+  color: #11d1a8;
+}
+.background .container .header .order .order-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0a0a0a;
+}
+.background .container .header .order .order-status {
+  color: #f29702;
+  font-weight: 600;
+}
+.background .container .header .icon-brand {
+  font-size: 30px;
+  color: #11d1a8;
+}
+.background .container .content {
+  border: 1px solid lightgray;
+  padding: 20px 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.background .container .content .timeline .item {
+  position: relative;
+  border-bottom: 1px solid lightgray;
+  padding: 20px 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.background
+  .container
+  .content
+  .timeline
+  .item.active
+  .item-description:before {
+  background-color: #11d1a8;
+}
+.background .container .content .timeline .item:last-child {
+  border-bottom: none;
+}
+.background .container .content .timeline .item:last-child:before {
+  display: none;
+}
+.background .container .content .timeline .item:before {
+  border-left: 3px solid #11d1a8;
+  content: "";
+  z-index: 0;
+  height: 102%;
+  left: 135px;
+  position: absolute;
+  opacity: 0.4;
+}
+.background .container .content .timeline .item .item-label {
+  position: absolute;
+}
+.background .container .content .timeline .item .item-label .item-label-date {
+  color: #a6a6a6;
+  font-size: 17px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+.background .container .content .timeline .item .item-label .item-label-hour {
+  font-weight: 600;
+  font-size: 19px;
+  float: right;
+}
+.background .container .content .timeline .item .item-description {
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.background .container .content .timeline .item .item-description:before {
+  border: 2px solid #11d1a8;
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+  content: "";
+  z-index: 0;
+  left: 125px;
+  position: absolute;
+  background-color: #fff;
+  display: block;
+}
+.background
+  .container
+  .content
+  .timeline
+  .item
+  .item-description
+  .item-description-status {
+  font-weight: 600;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+.background
+  .container
+  .content
+  .timeline
+  .item
+  .item-description
+  .item-description-location {
+  color: #a6a6a6;
+  font-size: 15px;
+  font-weight: 500;
+}
