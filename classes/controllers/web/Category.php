@@ -31,6 +31,13 @@ Class Category{
             // print_r($ans);
             }
             $product_ids = array_unique($product_ids);
+            if(sizeof($product_ids)==0){
+                $ans = $this->di->get("Database")->rawQuery("SELECT id from product where category_name='{$category_name}'");
+                // print_r($ans);
+                foreach($ans as $an){
+                    array_push($product_ids,$an['id']);
+                }
+            }
         }else{
             $ans = $this->di->get("Database")->rawQuery("SELECT id from product where category_name='{$category_name}'");
             // print_r($ans);
