@@ -14,6 +14,10 @@ class ComposerStaticInit4ca186096aeb5d90f260fb0ac2169cc6
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Twilio\\' => 7,
+        ),
         'P' => 
         array (
             'Pusher\\PushNotifications\\' => 25,
@@ -33,6 +37,10 @@ class ComposerStaticInit4ca186096aeb5d90f260fb0ac2169cc6
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twilio\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
+        ),
         'Pusher\\PushNotifications\\' => 
         array (
             0 => __DIR__ . '/..' . '/pusher/pusher-push-notifications/src',

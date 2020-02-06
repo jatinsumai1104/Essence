@@ -26,7 +26,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
                         <!-- ##### Single Widget ##### -->
                         <div class="widget catagory mb-50">
                             <!-- Widget Title -->
-                            <h6 class="widget-title mb-30">Catagories</h6>
+                            <h6 class="widget-title mb-30">Categories</h6>
 
                             <!--  Catagories  -->
                             <div class="catagories-menu">

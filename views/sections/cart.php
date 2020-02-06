@@ -15,6 +15,7 @@ require_once(__DIR__.'/../includes/header-bp.php');
             </div>
         </div>
     </div>
+    <a href="<?php echo BASEURL;?>shop" class="btn essence-btn btn-sm float-right">Shop More</a>
     <!-- ##### Breadcumb Area End ##### -->
     <?php 
         $products = $di->get("Cart")->getAllCartProducts(Session::getSession("user_id"));

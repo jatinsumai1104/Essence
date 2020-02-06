@@ -142,5 +142,12 @@ Class Cart{
 
     }
     
+
+    public function getCount($user_id){
+        $sql = "SELECT count(*)  FROM cart WHERE user_id = $user_id GROUP BY user_id";
+        $res = $this->di->get("Database")->rawQuery($sql);
+        return $res;
+
+    }
 }
 ?>
