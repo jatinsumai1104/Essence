@@ -50,9 +50,33 @@ if(isset($_POST["add_cart"])){
     // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
 }
+
+if(isset($_POST["delete_cart"])){
+    // var_dump($_POST);
+    $di->get('Cart')->deleteProductFromCart($_POST);
+    Util::redirect("cart");
+}
+
 if(isset($_POST["get"])){
     //echo "hii";
     $di->get('Product')->getAllProductsOnSale();
-    $di->get('Product')->getTotalBill(1);
+    //$di->get('Product')->getTotalBill(1);
     Util::redirect("shop");
+}
+if(isset($_POST["place_order"])){
+    $di->get('Cart')->deleteCartProductsByUser($_SESSION["user_id"]);
+}
+if(isset($_POST['search_query'])){
+    // echo $_POST['search'];
+    $_SESSION["search_query"]=$_POST['search'];
+    Util::redirect("shop");
+}
+if(isset($_POST['chatbot'])){
+    // echo $_POST['chatText'];
+    $word = explode(" ",$_POST['chatText']);
+    // print_r($word);
+    $txt = $word[sizeof($word)-1];
+    $products = $di->get("Database")->rawQuery("SELECT id,product_name,short_description from product where category_name like '%{$txt}%'");
+    // print_r($products);
+    echo json_encode($products);
 }

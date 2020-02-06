@@ -153,7 +153,10 @@ require_once(__DIR__.'/../includes/header-bp.php')
                             
                         </div>
 
-                        <a href="#" class="btn essence-btn">Place Order</a>
+                        <!-- <a href="#" class="btn essence-btn">Place Order</a> -->
+                        <form action="<?php echo BASEPAGES?>../../helper/routing.php" method="post">
+                        <button class="btn essence-btn" type="submit" name="place_order">Place Order</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -23,6 +23,22 @@ Class Product{
       return $this->di->get("Database")->readData($this->table, ["seller_name"]);
     }
 
+    public function bestSeller(){
+      $sql = "SELECT AVG(rating) AS rate,product_id FROM review GROUP BY product_id ORDER BY rate DESC LIMIT 5";
+      $res = $this->di->get("Database")->rawQuery($sql);
+      $stat = "";
+      for($i =0;$i<count($res);$i++){
+        $val = $res[$i]["product_id"];
+        if($i<count($res)-1){
+          $stat = $stat . " id = $val OR";
+        }else{
+          $stat = $stat . " id = $val";
+        }
+      }
+      $sql = "SELECT * FROM product WHERE".$stat;
+      $res = $this->di->get("Database")->rawQuery($sql);
+      return $res;
+    }
     public function getAllProductsOnSale(){
       $query = "SELECT category from events WHERE name = 'BBD'";
       $res = $this->di->get("Database")->rawQuery($query);
@@ -70,10 +86,20 @@ Class Product{
       }
     }
     //var_dump($value["quantity"]);
-    // var_dump($res);
+    //var_dump($res);
 
     return $total_price;
   }
+
+  public function getReviewByProductId($id){
+    // echo $id;
+    $query = "SELECT * from review inner join users on review.user_id=users.id where product_id={$id}";
+    $res = $this->di->get("Database")->rawQuery($query);
+    // print_r($res);
+    return $res;
+  }
+
+  
 
   
 }

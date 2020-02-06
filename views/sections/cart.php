@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__.'/../includes/header-bp.php')
+require_once(__DIR__.'/../includes/header-bp.php');
+//echo $_SESSION["user_id"];
 
 ?>
     <!-- ##### Breadcumb Area Start ##### -->
@@ -56,7 +57,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['product_id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?> <span><button class="btn btn-danger float-right">Delete</button></span></p>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?> <span><button class="btn btn-danger float-right">Delete</button></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +84,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
                         <li><span>Total</span> <span>Rs. <?php echo $total_price;?></span></li>
                     </ul>
 
-                    <a href="#" class="btn essence-btn">Check Out</a>
+                    <a href="<?php echo BASEURL;?>checkout" class="btn essence-btn">Check Out</a>
                   </div>
                 </div>
             </div>
