@@ -134,7 +134,10 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
                                 <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
+                                    <input type="text" id="amt">
+                                    <p id="balance"></p>
+                                    <button onclick="deposit()">Deposit</button>
+                                    <button onclick="withdraw()">Withdraw</button>
                                     </div>
                                 </div>
                             </div>

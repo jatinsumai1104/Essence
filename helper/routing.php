@@ -80,3 +80,5 @@ if(isset($_POST['chatbot'])){
     // print_r($products);
     echo json_encode($products);
 }
+
+
