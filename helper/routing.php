@@ -76,7 +76,19 @@ if(isset($_POST['chatbot'])){
     $word = explode(" ",$_POST['chatText']);
     // print_r($word);
     $txt = $word[sizeof($word)-1];
+<<<<<<< HEAD
+    // echo $txt;
+    $command = escapeshellcmd("python ../nlp/stemming.py {$txt}");
+    $output1 = shell_exec($command);
+    // echo $command;
+    $output = trim($output1);
+    // echo strlen($output);
+    // echo $output;
+    // echo "hello";
+    $products = $di->get("Database")->rawQuery("SELECT id,product_name,category_name,product_description from product where category_name like '%{$output}%'");
+=======
     $products = $di->get("Database")->rawQuery("SELECT id,product_name,short_description from product where category_name like '%{$txt}%'");
+>>>>>>> 730b4e44b8ab5cbabfe02a8cdb01226341589628
     // print_r($products);
     echo json_encode($products);
 }
