@@ -12,5 +12,9 @@ Class User{
     // print_r($categories);
     return $categories;
     }
+
+    public function getUserCountry($id){
+        return $this->di->get("Database")->readData($this->table, ["country"], "id=".$id)[0]["country"];
+    }
 }
 ?>

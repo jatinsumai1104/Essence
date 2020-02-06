@@ -21,12 +21,14 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo BASEURL;?>shop">Shop</a></li>
-                                    <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
-                                    <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
-                                    <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
                                     <li><a href="<?php echo BASEURL;?>bestSeller">BestSeller</a></li>
                                     <li><a href="<?php echo BASEURL;?>events">Events</a></li>
+                                    <li><a href="<?php echo BASEURL;?>views/sections/chatbot.php">Talk to Nick</a></li>
+                                    <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
+                                    <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
+                                    <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
+                                    
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
@@ -45,9 +47,11 @@
                         <button name="search_query" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
-                <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="#"><img src="<?php echo BASEASSETS;?>img/core-img/user.svg" alt=""></a>
+                <div class="cart-area">
+                    <a href="" id="balance"></a>
+                </div>
+                <div class="cart-area">
+                    <a href=""><?php echo Session::getSession("user_name")?></a>
                 </div>
                 <!-- User Login Info -->
                 <form method="post" action="<?php echo BASEURL;?>helper/routing.php">
