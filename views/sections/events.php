@@ -33,8 +33,12 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
                     <img src="<?php echo BASEASSETS;?>img/bg-img/<?php
-
-                        echo $status == "birthday" ? "birthday-banner2.jpg" : "event-banner-2.jpg";
+                        if($_SESSION['user_id']==2){
+                            echo "birthday-banner2.jpg";
+                        }else{
+                            echo $status == "birthday" ? "birthday-banner2.jpg" : "event-banner-2.jpg";
+                        }
+                        
                     ?>"  style="height: 100vh" alt="">
                 </div>
                 
@@ -69,7 +73,7 @@ $categories = $di->get("User")->getRecommendCategories($_SESSION['user_id']);
                                             <a href="<?php echo BASEURL;?>single-product-details/<?php echo $product['id'];?>">
                                                 <h6><?php echo $product['product_name'];?></h6>
                                             </a>
-                                            <p class="product-price"> $<?php echo $product['price'];?></p>
+                                            <p class="product-price"> Rs. <?php echo $product['price'];?></p>
 
                                             <!-- Hover Content -->
                                             <div class="hover-content">

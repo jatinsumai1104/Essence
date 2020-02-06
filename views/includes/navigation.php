@@ -21,12 +21,14 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo BASEURL;?>shop">Shop</a></li>
-                                    <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
-                                    <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
-                                    <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
                                     <li><a href="<?php echo BASEURL;?>recommend">Recommend</a></li>
                                     <li><a href="<?php echo BASEURL;?>bestSeller">BestSeller</a></li>
                                     <li><a href="<?php echo BASEURL;?>events">Events</a></li>
+                                    <li><a href="<?php echo BASEURL;?>views/sections/chatbot.php">Talk to Nick</a></li>
+                                    <li><a href="<?php echo BASEURL;?>checkout">Checkout</a></li>
+                                    <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>
+                                    <li><a href="<?php echo BASEURL;?>forgot-password">Forgot Password</a></li>
+                                    
                                 </ul>
                             </li>
                             <li><a href="<?php echo BASEURL;?>contact">Contact</a></li>

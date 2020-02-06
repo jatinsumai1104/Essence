@@ -49,6 +49,7 @@ if(isset($_POST["add_category_user"])){
 if(isset($_POST["add_cart"])){
     // var_dump($_POST);
     $di->get('Cart')->addToCart($_POST);
+    Util::redirect("cart");
 }
 
 if(isset($_POST["delete_cart"])){
