@@ -2,56 +2,53 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+  <div>
+    <button class="pay-button">Pay</button>
+    <div id="status"></div>
+  </div>
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButton()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButton()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
 
+    const initPayButton = () => {
+      $('.pay-button').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
+        const amountEth = prompt("Enter Amount");
 
-    <!-- <form action="http://localhost/essence/helper/routing.php" method="POST">
-    <input type="hidden" value="4" id="product_id" name="product_id">
-    <form action="http://localhost/essence/helper/routing.php" method="POST">
-    <input type="hidden" value="7" id="product_id" name="product_id">
-    <p>Quantity</p>
-    <input type="text" name="quantity">
-    <button type="submit" name="add-to-cart">Submit</button>
-    <p id="success"></p>
-    </form> -->
-
-    <form action="http://localhost/essence/helper/routing.php" method="POST">
-    <button type="submit" name="get">click</button>
-    
-    </form>
-
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-   </script> 
-   <!-- <script>
- $(document).ready(function() {
-     $product_id = $("#product_id").val();
-           $.ajax({
-    url: "http://localhost/essence/helper/routing.php",
-    method: "POST",
-    data: {
-      add_category_user: true,
-      product_id:$product_id
-    },
-    dataType: "json",
-    success: function(data) {
-      //$("#success").html("success");
-      console.log("hii");
-    },
-    error: function(error) {
-      console.log(error);
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
     }
-  });
-    //console.log("hello");
-        });
-</script> -->
+  </script>
 </body>
-
 </html>
