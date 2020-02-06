@@ -153,6 +153,7 @@ img{ max-width:100%;}
         <div class="mesgs">
           <div class="msg_history">
             
+            <div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p>Hello! Welcome to Essence. I am Nick! Let me know what should I find for you!</p> </div>
           </div>
           </div>
       </div>
@@ -172,9 +173,8 @@ img{ max-width:100%;}
             if($str == ""){
                 window.alert("Enter Something");
             }
-            console.log("no".localeCompare($str));
-            if($str != "" && "no".localeCompare($str) < 0){
-                console.log( $str);
+            
+            if($str != ""){
                 $(".msg_history").append("<div class='outgoing_msg'><div class='sent_msg'><p>"+$str+"</p></div></div>");
                 $.ajax({
                     url: "http://localhost/essence/helper/routing.php",
@@ -183,29 +183,28 @@ img{ max-width:100%;}
                     data:{chatText : $str,chatbot : "true"},
                     success : function(data){
                        if(data.length != 0){ 
-                        da = data;
                         // console.log(da);
                         $name = data[$i].product_name;
                         $price = data[$i].price;
                         $product_id = data[$i].id;
                         $pro_desc = data[$i].short_description;
-                        $(".msg_history").append("<div class='msg_history'><div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div></div>");
+                        $(".msg_history").append("<div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div>");
                        }else{
                            window.alert("Enter Valid Item");
                        }
                     }
                 });
             }
-            console.log(da);
-            if("no".localeCompare($str) >= 0){
-                console.log(da);
-                $i++;
-                $name = da[$i].product_name;
-                $price = da[$i].price;
-                $product_id = da[$i].id;
-                $pro_desc = da[$i].short_description;
-                $(".msg_history").append("<div class='msg_history'><div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div></div>");
-            }
+            // console.log(da);
+            // if("no".localeCompare($str) >= 0){
+            //     console.log(da);
+            //     $i++;
+            //     $name = da[$i].product_name;
+            //     $price = da[$i].price;
+            //     $product_id = da[$i].id;
+            //     $pro_desc = da[$i].short_description;
+            //     $(".msg_history").append("<div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div>");
+            // }
 
             
             
