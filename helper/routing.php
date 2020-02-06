@@ -76,7 +76,7 @@ if(isset($_POST['chatbot'])){
     $word = explode(" ",$_POST['chatText']);
     // print_r($word);
     $txt = $word[sizeof($word)-1];
-    $products = $di->get("Database")->rawQuery("SELECT id,product_name,category_name,product_description from product where category_name like '%{$txt}%'");
+    $products = $di->get("Database")->rawQuery("SELECT id,product_name,short_description from product where category_name like '%{$txt}%'");
     // print_r($products);
     echo json_encode($products);
 }

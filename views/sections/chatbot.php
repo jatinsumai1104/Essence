@@ -152,37 +152,7 @@ img{ max-width:100%;}
 <div class="messaging">
         <div class="mesgs">
           <div class="msg_history">
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test which is a new approach to have all
-                    solutions</p>
-              </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test, which is a new approach to have</p>
-                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Apollo University, Delhi, India Test</p>
-                <span class="time_date"> 11:01 AM    |    Today</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>We work directly with our designers and suppliers,
-                    and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford.</p>
-                  <span class="time_date"> 11:01 AM    |    Today</span></div>
-              </div>
-            </div>
+            
           </div>
           </div>
       </div>
@@ -192,27 +162,52 @@ img{ max-width:100%;}
               <button class="msg_send_btn" type="button" id="submit_btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>
-        
-    </div></div>
+    
     <script>
         $("#submit_btn").click(function(){
+            var da;
+            $i = 0;
             $str = $("#msg").val();
             $("#msg").val(" ");
             if($str == ""){
                 window.alert("Enter Something");
             }
-            if($str != ""){
+            console.log("no".localeCompare($str));
+            if($str != "" && "no".localeCompare($str) < 0){
+                console.log( $str);
                 $(".msg_history").append("<div class='outgoing_msg'><div class='sent_msg'><p>"+$str+"</p></div></div>");
                 $.ajax({
                     url: "http://localhost/essence/helper/routing.php",
                     method:"POST",
                     dataType:"json",
-                    data:{str : $str,chatbot : "true"},
+                    data:{chatText : $str,chatbot : "true"},
                     success : function(data){
-                        console.log(data);
+                       if(data.length != 0){ 
+                        da = data;
+                        // console.log(da);
+                        $name = data[$i].product_name;
+                        $price = data[$i].price;
+                        $product_id = data[$i].id;
+                        $pro_desc = data[$i].short_description;
+                        $(".msg_history").append("<div class='msg_history'><div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div></div>");
+                       }else{
+                           window.alert("Enter Valid Item");
+                       }
                     }
                 });
             }
+            console.log(da);
+            if("no".localeCompare($str) >= 0){
+                console.log(da);
+                $i++;
+                $name = da[$i].product_name;
+                $price = da[$i].price;
+                $product_id = da[$i].id;
+                $pro_desc = da[$i].short_description;
+                $(".msg_history").append("<div class='msg_history'><div class='incoming_msg'><div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div><div class='received_msg'><div class='received_withd_msg'><p> Product Name : "+$name+"</p><p> Product Description : "+$pro_desc+"</p> <a href='http://localhost/essence/single-product-details/"+$product_id+"'>Click Here to Visit Product</a> </div></div>");
+            }
+
+            
             
         });
     
