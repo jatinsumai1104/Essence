@@ -134,10 +134,9 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
                                 <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                    <input type="text" id="amt">
+                                    <input type="text" id="amt" value="<?php echo $total_price;?>">
                                     <p id="balance"></p>
-                                    <button onclick="deposit()">Deposit</button>
-                                    <button onclick="withdraw()">Withdraw</button>
+                                    <button onclick="deposit()">Pay Via Ether</button>
                                     </div>
                                 </div>
                             </div>
@@ -166,6 +165,80 @@ require_once(__DIR__.'/../includes/header-bp.php')
         </div>
     </div>
     <!-- ##### Checkout Area End ##### -->
+
+    
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var contract;
+    $(document).ready(function(){
+      web3 = new Web3(web3.currentProvider);
+      var address="0x85e7acd146e607073375d9df09bf5cf8cfa10d90";
+      var abi = [
+        {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "amt",
+            "type": "int256"
+          }
+        ],
+        "name": "deposit",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "amt",
+            "type": "int256"
+          }
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+        },
+        {
+        "constant": true,
+        "inputs": [],
+        "name": "getBalance",
+        "outputs": [
+          {
+            "name": "",
+            "type": "int256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+        }
+      ];
+      contract = new web3.eth.Contract(abi,address);
+      contract.methods.getBalance().call().then(function(bal){
+        $('#balance').html(bal);
+      });
+    });
+    function deposit(){
+      web3.eth.getAccounts().then(function(acc){
+        contract.methods.deposit(parseInt($("#amt").val())).send({from: acc[0]}).then(function(bal){
+          $('#balance').empty();
+          $('#balance').html(bal);
+        });
+      });
+    }
+    
+  </script>
     <?php
 require_once(__DIR__.'/../includes/footer-bp.php')
 
