@@ -19,7 +19,7 @@ require_once(__DIR__.'/delete-cart-modal.php');
     });
 
     $(".delete-from-cart").on("click", function(e) {
-       // console.log("hii");
+        console.log("hii");
         console.log($(this).attr("id"))
         $("#recordId2").val($(this).attr("id"));
         
