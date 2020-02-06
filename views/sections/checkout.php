@@ -134,7 +134,7 @@ require_once(__DIR__.'/../includes/header-bp.php')
 
                                 <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                    <input type="text" id="amt" value="<?php echo $total_price;?>">
+                                    <input type="hidden" id="amt" value="<?php echo $total_price;?>" >
                                     <p id="balance"></p>
                                     <button onclick="deposit()">Pay Via Ether</button>
                                     </div>
