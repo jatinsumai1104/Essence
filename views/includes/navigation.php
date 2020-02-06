@@ -45,9 +45,11 @@
                         <button name="search_query" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
-                <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="#"><img src="<?php echo BASEASSETS;?>img/core-img/user.svg" alt=""></a>
+                <div class="cart-area">
+                    <a href="" id="balance"></a>
+                </div>
+                <div class="cart-area">
+                    <a href=""><?php echo Session::getSession("user_name")?></a>
                 </div>
                 <!-- User Login Info -->
                 <form method="post" action="<?php echo BASEURL;?>helper/routing.php">

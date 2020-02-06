@@ -128,28 +128,22 @@ require_once(__DIR__.'/../includes/header-bp.php')
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <h6 class="mb-0">
-                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>Paypal</a>
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>VM - Wallet</a>
                                     </h6>
                                 </div>
 
                                 <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
                                     <input type="hidden" id="amt" value="<?php echo $total_price;?>" >
-                                    <p id="balance"></p>
-                                    <button onclick="deposit()">Pay Via Ether</button>
+                                    <button onclick="withdraw()" class="btn essence-btn">Pay Via Ether</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingTwo">
                                     <h6 class="mb-0">
-                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery</a>
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery (By Default)</a>
                                     </h6>
-                                </div>
-                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in veritatis officia inventore, tempore provident dignissimos.</p>
-                                    </div>
                                 </div>
                             </div>
                             
@@ -230,16 +224,39 @@ require_once(__DIR__.'/../includes/header-bp.php')
       });
     });
     function deposit(){
-      web3.eth.getAccounts().then(function(acc){
-        contract.methods.deposit(parseInt($("#amt").val())).send({from: acc[0]}).then(function(bal){
-          $('#balance').empty();
-          $('#balance').html(bal);
+        checkSufficientBalance(function(data){
+            if(data){
+                web3.eth.getAccounts().then(function(acc){
+                    // parseInt(parseInt($("#amt").val())/73)
+                    contract.methods.withdraw(parseInt(parseInt($("#amt").val())/73)).send({from: acc[0]}).then(function(bal){
+                        console.log("Rs. "+parseInt(parseInt($("#amt").val())/73)+" Debited");
+                    });
+                });
+                console.log("Success");
+            }else{
+                console.log("Not Enough Balance");
+            }
         });
-      });
+    //   web3.eth.getAccounts().then(function(acc){
+    //     contract.methods.deposit(parseInt(parseInt($("#amt").val())/73)).send({from: acc[0]}).then(function(bal){
+
+    //       $('#balance').empty();
+    //       $('#balance').html(bal);
+    //     });
+    //   });
     }
+    function checkSufficientBalance(callback){
+        contract.methods.getBalance().call().then(function(bal){
+            var res = false;
+            if(bal > (parseInt(parseInt($("#amt").val())/73))){
+                res = true;
+            }
+            callback(res);
+        });
+      }
     
   </script>
-    <?php
+<?php
 require_once(__DIR__.'/../includes/footer-bp.php')
 
 ?>
