@@ -31,82 +31,84 @@ require_once(__DIR__.'/delete-cart-modal.php');
     var contract;
     $(document).ready(function(){
       web3 = new Web3(web3.currentProvider);
-      var address="0x85e7acd146e607073375d9df09bf5cf8cfa10d90";
+      var address="0x9d94a9465d68d5201eb47c4846a6fa7fb859bf0d";
       var abi = [
-        {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "amt",
-            "type": "int256"
-          }
-        ],
-        "name": "deposit",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-        },
-        {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "amt",
-            "type": "int256"
-          }
-        ],
-        "name": "withdraw",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-        },
-        {
-        "inputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-        },
-        {
-        "constant": true,
-        "inputs": [],
-        "name": "getBalance",
-        "outputs": [
-          {
-            "name": "",
-            "type": "int256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-        }
-      ];
-      contract = new web3.eth.Contract(abi,address);
-      contract.methods.getBalance().call().then(function(bal){
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amt",
+				"type": "int256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amt",
+				"type": "int256"
+			}
+		],
+		"name": "deposit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
+];
+        contract = new web3.eth.Contract(abi,address);
+        contract.methods.getBalance().call().then(function(bal){
         $('#balance').html(bal);
       });
     });
 
     function deposit(){
         web3.eth.getAccounts().then(function(acc){
-            // parseInt(parseInt($("#amt").val())/73)
-            contract.methods.deposit(parseInt(parseInt($("#amt").val())/73)).send({from: acc[0]}).then(function(bal){
-                console.log("Rs. "+parseInt(parseInt($("#amt").val())/73)+" Credited");
+            // console.log("hello");
+            parseInt(parseInt($("#amt").val())/73)
+            contract.methods.deposit(parseInt(parseInt($("#amt").val()))).send({from: acc[0]}).then(function(bal){
+                console.log("Rs. "+parseInt(parseInt($("#amt").val()))+" Credited");
             });
         });
     }
 
     function withdraw(){
+        
         checkSufficientBalance(function(data){
             if(data){
                 web3.eth.getAccounts().then(function(acc){
                     // parseInt(parseInt($("#amt").val())/73)
-                    contract.methods.withdraw(parseInt(parseInt($("#amt").val())/73)).send({from: acc[0]}).then(function(bal){
-                        console.log("Rs. "+parseInt(parseInt($("#amt").val())/73)+" Debited");
+                    contract.methods.deposit(parseInt(parseInt($("#amt").val()))).send({from: acc[0]}).then(function(bal){
+                        console.log("Rs. "+parseInt(parseInt($("#amt").val()))+" Debited");
+                        window.location.replace("http://localhost/essence/shop");
                     });
                 });
-                console.log("Success");
             }else{
                 console.log("Not Enough Balance");
             }
@@ -116,7 +118,7 @@ require_once(__DIR__.'/delete-cart-modal.php');
     function checkSufficientBalance(callback){
         contract.methods.getBalance().call().then(function(bal){
             var res = false;
-            if(bal > (parseInt(parseInt($("#amt").val())/73))){
+            if(bal > (parseInt(parseInt($("#amt").val())))){
                 res = true;
             }
             callback(res);
